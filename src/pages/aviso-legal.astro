@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
+---
+
+<Layout
+  title="Aviso Legal"
+  description="Aviso legal de Vetamans. Condiciones de uso del sitio web, titularidad, datos fiscales y términos legales de la web de ebanistería artesanal."
+  canonicalURL="https://www.vetamans.com/aviso-legal"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Aviso Legal', url: '/aviso-legal' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
+>
+  <Nav />
+  <main class="pt-24 px-8 max-w-3xl mx-auto">
+    <section class="py-16 prose prose-lg max-w-none text-vetamans-carbon font-light">
+      <h1 class="text-4xl font-serif text-vetamans-nogal mb-8">Aviso Legal</h1>
+      <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), se informa de los siguientes datos:</p>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Titular del sitio web</h2>
+      <ul><li><strong>Denominación social:</strong> Vetamans Ebanistería</li><li><strong>Nombre comercial:</strong> Vetamans</li><li><strong>Dirección:</strong> Gandia, Valencia, España</li><li><strong>Email:</strong> info@vetamans.com</li></ul>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Condiciones de uso</h2>
+      <p>El acceso y uso de este sitio web atribuye la condición de usuario e implica la aceptación plena de las condiciones de uso aquí publicadas. Vetamans se reserva el derecho a modificar los contenidos del sitio sin previo aviso.</p>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Propiedad intelectual</h2>
+      <p>Todos los contenidos del sitio (textos, imágenes, logotipos, diseño) son propiedad de Vetamans y están protegidos por la legislación de propiedad intelectual. Queda prohibida su reproducción sin autorización expresa.</p>
+    </section>
+  </main>
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
+</Layout>

@@ -3,6 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -22,6 +28,7 @@ const faqSchema = {
   canonicalURL="https://www.vetamans.com/servicios/restauracion"
   pageType="FAQPage"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Servicios', url: '/servicios' }, { name: 'Restauración de Muebles', url: '/servicios/restauracion' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav currentPage="/servicios" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -68,6 +75,6 @@ const faqSchema = {
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 </Layout>

@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+let settings: Record<string, string> = {};
+try { const res = await fetch('https://api.vetamans.com/api/settings'); if (res.ok) settings = await res.json(); } catch (e) {}
+---
+
+<Layout
+  title="Política de Cookies"
+  description="Política de Cookies de Vetamans. Información sobre las cookies utilizadas en esta web, su finalidad y cómo configurarlas o deshabilitarlas según el RGPD."
+  canonicalURL="https://www.vetamans.com/cookies"
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Política de Cookies', url: '/cookies' }]}
+>
+  <Nav />
+  <main class="pt-24 px-8 max-w-3xl mx-auto">
+    <section class="py-16 prose prose-lg max-w-none text-vetamans-carbon font-light">
+      <h1 class="text-4xl font-serif text-vetamans-nogal mb-8">Política de Cookies</h1>
+      <p>Esta web utiliza cookies propias y de terceros para mejorar la experiencia de navegación y analizar el tráfico. A continuación te explicamos qué son, qué tipos utilizamos y cómo puedes gestionarlas.</p>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">¿Qué son las cookies?</h2>
+      <p>Las cookies son pequeños archivos de texto que los sitios web almacenan en tu dispositivo al navegar. Permiten recordar preferencias, analizar hábitos de navegación y mejorar la funcionalidad del sitio.</p>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Tipos de cookies utilizadas</h2>
+      <ul>
+        <li><strong>Cookies técnicas:</strong> Necesarias para el funcionamiento del sitio. No requieren consentimiento.</li>
+        <li><strong>Cookies de análisis:</strong> Utilizamos Google Fonts para la tipografía. No recopilan datos personales identificables.</li>
+        <li><strong>Cookies de sesión:</strong> Se eliminan al cerrar el navegador. Gestionan la navegación entre páginas.</li>
+      </ul>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Cómo deshabilitar las cookies</h2>
+      <p>Puedes configurar tu navegador para rechazar todas o algunas cookies. Consulta la ayuda de tu navegador:</p>
+      <ul><li><strong>Chrome:</strong> Configuración → Privacidad → Cookies</li><li><strong>Firefox:</strong> Opciones → Privacidad y Seguridad → Cookies</li><li><strong>Safari:</strong> Preferencias → Privacidad → Cookies</li><li><strong>Edge:</strong> Configuración → Cookies y permisos del sitio</li></ul>
+      <p class="mt-8">Para más información, contáctanos en info@vetamans.com.</p>
+    </section>
+  </main>
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
+</Layout>

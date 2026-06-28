@@ -2,6 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
 ---
 
 <Layout
@@ -10,6 +16,7 @@ import Footer from '../components/Footer.astro';
   canonicalURL="https://www.vetamans.com/valencia"
   pageType="LocalBusiness"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Muebles a Medida en Valencia', url: '/valencia' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav />
   <main class="pt-24">
@@ -72,5 +79,5 @@ import Footer from '../components/Footer.astro';
       <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-nogal px-10 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-roble transition-all">Pedir Visita Técnica</a>
     </section>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
 </Layout>

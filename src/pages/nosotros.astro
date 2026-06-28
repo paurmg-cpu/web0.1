@@ -3,6 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
+
 let nosotrosTexto = `Vetamans nace de la fusión de dos mundos complementarios. Por un lado, la experiencia y el rigor académico de Jorge Rondón, maestro ebanista venezolano que dedicó años a formar nuevas generaciones de carpinteros mientras dirigía su propio taller. Por otro, el entusiasmo y la visión de Pau Magraner, un joven apasionado por la excelencia y el trabajo bien hecho. En Vetamans, no solo fabricamos muebles; unimos la tradición artesanal con la energía de quien busca la perfección en cada detalle.`;
 
 try {
@@ -19,6 +25,7 @@ try {
   description="Vetamans nace de la fusión entre la experiencia del maestro ebanista Jorge Rondón y la visión de Pau Magraner. Pasión artesanal, rigor técnico y diseño contemporáneo en Gandia."
   canonicalURL="https://www.vetamans.com/nosotros"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Nosotros', url: '/nosotros' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav currentPage="/nosotros" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -64,5 +71,5 @@ try {
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
 </Layout>

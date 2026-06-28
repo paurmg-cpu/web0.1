@@ -2,12 +2,19 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
 ---
 
 <Layout
   title="Página no encontrada"
   description="La página que buscas no existe. Regresa al inicio o contacta con Vetamans para ayudarte con tu proyecto de carpintería."
   canonicalURL="https://vetamans.com/404"
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav />
   <main class="min-h-screen flex items-center justify-center px-8 pt-24">
@@ -27,5 +34,5 @@ import Footer from '../components/Footer.astro';
       </div>
     </div>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
 </Layout>

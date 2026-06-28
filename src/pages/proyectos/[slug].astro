@@ -3,6 +3,23 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
+
+export async function getStaticPaths() {
+  try {
+    const res = await fetch('https://api.vetamans.com/api/proyectos');
+    if (res.ok) {
+      const proyectos = await res.json();
+      return proyectos.map((p: any) => ({ params: { slug: p.id } }));
+    }
+  } catch (e) {}
+  return [];
+}
+
 const { slug } = Astro.params;
 
 let proyecto: any = null;
@@ -32,6 +49,7 @@ const projectSchema = proyecto ? {
   canonicalURL={`https://www.vetamans.com/proyectos/${slug}`}
   pageType="Product"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Portfolio', url: '/portfolio' }, { name: proyecto?.titulo || 'Proyecto', url: `/proyectos/${slug}` }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav />
   <main class="pt-24 px-8 max-w-6xl mx-auto">
@@ -73,6 +91,6 @@ const projectSchema = proyecto ? {
       </section>
     )}
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
   {projectSchema && <script type="application/ld+json" set:html={JSON.stringify(projectSchema)}></script>}
 </Layout>

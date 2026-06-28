@@ -2,6 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
 ---
 
 <Layout
@@ -9,6 +15,7 @@ import Footer from '../components/Footer.astro';
   description="Solicita tu presupuesto sin compromiso. Cuéntanos tu proyecto de carpintería a medida, cocina, restauración o mueble personalizado. Taller en Gandia, Valencia. Servimos toda la Marina Alta."
   canonicalURL="https://www.vetamans.com/contacto"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Contacto', url: '/contacto' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav currentPage="/contacto" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -34,7 +41,7 @@ import Footer from '../components/Footer.astro';
             <div class="text-vetamans-roble text-2xl" aria-hidden="true">📱</div>
             <div>
               <h3 class="font-bold text-vetamans-nogal">WhatsApp / Teléfono</h3>
-              <a href="https://wa.me/34XXXXXXXXX" class="text-vetamans-carbon font-light hover:text-vetamans-roble transition-colors">+34 XXX XXX XXX</a>
+              <a href={`https://wa.me/${settings.whatsapp || '34XXXXXXXXX'}`} class="text-vetamans-carbon font-light hover:text-vetamans-roble transition-colors">{settings.telefono || '+34 XXX XXX XXX'}</a>
             </div>
           </div>
           <div class="flex items-start gap-4">
@@ -138,7 +145,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
 </Layout>
 
 <script>

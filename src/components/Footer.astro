@@ -4,12 +4,16 @@ export interface Props {
   email?: string;
   direccion?: string;
   whatsapp?: string;
+  instagram?: string;
+  facebook?: string;
 }
 const {
   telefono = '+34 XXX XXX XXX',
   email = 'info@vetamans.com',
   direccion = 'Gandia, Valencia - Marina Alta',
   whatsapp = '34XXXXXXXXX',
+  instagram = '',
+  facebook = '',
 } = Astro.props;
 ---
 <footer class="bg-vetamans-carbon text-vetamans-lino/80 pt-20 pb-8">
@@ -65,6 +69,22 @@ const {
               <span>WhatsApp</span>
             </a>
           </li>
+          {instagram && (
+            <li>
+              <a href={instagram} target="_blank" rel="noopener" class="hover:text-vetamans-roble transition-colors flex items-start gap-2">
+                <span class="text-vetamans-roble mt-0.5">📷</span>
+                <span>Instagram</span>
+              </a>
+            </li>
+          )}
+          {facebook && (
+            <li>
+              <a href={facebook} target="_blank" rel="noopener" class="hover:text-vetamans-roble transition-colors flex items-start gap-2">
+                <span class="text-vetamans-roble mt-0.5">📘</span>
+                <span>Facebook</span>
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </div>
@@ -72,9 +92,9 @@ const {
     <div class="border-t border-vetamans-lino/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-vetamans-lino/40">
       <p>&copy; {new Date().getFullYear()} Vetamans. Todos los derechos reservados.</p>
       <div class="flex gap-6">
-        <a href="#" class="hover:text-vetamans-lino/60 transition-colors">Aviso Legal</a>
-        <a href="#" class="hover:text-vetamans-lino/60 transition-colors">Política de Privacidad</a>
-        <a href="#" class="hover:text-vetamans-lino/60 transition-colors">Cookies</a>
+        <a href="/aviso-legal" class="hover:text-vetamans-lino/60 transition-colors">Aviso Legal</a>
+        <a href="/privacidad" class="hover:text-vetamans-lino/60 transition-colors">Política de Privacidad</a>
+        <a href="/cookies" class="hover:text-vetamans-lino/60 transition-colors">Cookies</a>
       </div>
     </div>
   </div>

@@ -3,6 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
+
 let proyectos = [];
 try {
   const res = await fetch('https://api.vetamans.com/api/proyectos');
@@ -29,6 +35,7 @@ const categoriaLabels: Record<string, string> = {
   description="Galería de proyectos de ebanistería artesanal. Cocinas integrales, vestidores a medida, pérgolas y estructuras de madera. Cada pieza es una obra única diseñada y fabricada en nuestro taller de Gandia."
   canonicalURL="https://www.vetamans.com/portfolio"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Portfolio', url: '/portfolio' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav currentPage="/portfolio" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -73,5 +80,5 @@ const categoriaLabels: Record<string, string> = {
       )}
     </section>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
 </Layout>

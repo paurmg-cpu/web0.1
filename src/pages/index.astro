@@ -46,6 +46,7 @@ try {
   pageType="WebPage"
   preloadImage="/hero-wood.jpg"
   breadcrumbs={[{ name: 'Inicio', url: '/' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav currentPage="/" />
   <main>
@@ -139,5 +140,5 @@ try {
       </section>
     )}
   </main>
-  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
 </Layout>

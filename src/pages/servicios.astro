@@ -2,6 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
 ---
 
 <Layout
@@ -9,6 +15,7 @@ import Footer from '../components/Footer.astro';
   description="Servicios de ebanistería de lujo: cocinas a medida, mobiliario personalizado y restauración de alta gama. Diseño, fabricación artesanal y montaje en Gandia y la Marina Alta."
   canonicalURL="https://www.vetamans.com/servicios"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Servicios', url: '/servicios' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav currentPage="/servicios" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -125,5 +132,5 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
 </Layout>

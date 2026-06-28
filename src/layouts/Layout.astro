@@ -8,6 +8,7 @@ interface Props {
   noindex?: boolean;
   preloadImage?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
+  whatsapp?: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   noindex = false,
   preloadImage = '',
   breadcrumbs = [],
+  whatsapp = '34XXXXXXXXX',
 } = Astro.props;
 
 const baseUrl = 'https://www.vetamans.com';
@@ -132,5 +134,19 @@ const localBusiness = {
   </head>
   <body class="bg-vetamans-lino text-vetamans-carbon font-sans scroll-smooth antialiased">
     <slot />
+    <!-- WhatsApp Floating Button -->
+    <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener" aria-label="Contactar por WhatsApp" class="fixed bottom-6 right-6 z-50 bg-green-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-green-600 hover:scale-110 transition-all duration-300" style="box-shadow: 0 4px 20px rgba(37,211,102,.4);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.97-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.643-1.025-5.128-2.896-6.994-1.866-1.865-4.35-2.896-6.994-2.897-5.452 0-9.887 4.434-9.889 9.885 0 1.766.474 3.511 1.357 5.033l.908 1.577-.576 2.106 2.226-.54 1.583.884z"/></svg>
+    </a>
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-vetamans-carbon text-vetamans-lino p-4 z-40 hidden shadow-2xl">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+        <p class="font-light">Utilizamos cookies propias y de terceros para mejorar tu experiencia. Al continuar navegando aceptas nuestra <a href="/privacidad" class="underline hover:text-vetamans-roble">política de privacidad</a>.</p>
+        <button onclick="document.getElementById('cookie-banner').classList.add('hidden'); localStorage.setItem('cookies_accepted','1')" class="bg-vetamans-roble text-vetamans-lino px-6 py-2 rounded-sm font-semibold text-sm whitespace-nowrap hover:bg-vetamans-nogal transition-colors">Aceptar</button>
+      </div>
+    </div>
+    <script>
+      if (!localStorage.getItem('cookies_accepted')) document.getElementById('cookie-banner').classList.remove('hidden');
+    </script>
   </body>
 </html>

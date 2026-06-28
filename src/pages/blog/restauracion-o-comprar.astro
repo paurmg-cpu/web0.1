@@ -3,6 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
+
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -22,6 +28,7 @@ const articleSchema = {
   canonicalURL="https://www.vetamans.com/blog/restauracion-o-comprar"
   pageType="Article"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Restaurar o comprar', url: '/blog/restauracion-o-comprar' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav />
   <main class="pt-24 px-8 max-w-3xl mx-auto">
@@ -113,6 +120,6 @@ const articleSchema = {
       </div>
     </article>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
 </Layout>

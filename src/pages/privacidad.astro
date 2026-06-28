@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
+---
+
+<Layout
+  title="Política de Privacidad"
+  description="Política de Privacidad de Vetamans. Información sobre protección de datos personales conforme al RGPD y la LOPDGDD. Derechos ARCO, finalidad del tratamiento y Cesión de datos."
+  canonicalURL="https://www.vetamans.com/privacidad"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Política de Privacidad', url: '/privacidad' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
+>
+  <Nav />
+  <main class="pt-24 px-8 max-w-3xl mx-auto">
+    <section class="py-16 prose prose-lg max-w-none text-vetamans-carbon font-light">
+      <h1 class="text-4xl font-serif text-vetamans-nogal mb-8">Política de Privacidad</h1>
+      <p>De conformidad con el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD), Vetamans informa sobre el tratamiento de datos personales.</p>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Responsable del tratamiento</h2>
+      <ul><li><strong>Identidad:</strong> Vetamans</li><li><strong>Email:</strong> info@vetamans.com</li><li><strong>Dirección:</strong> Gandia, Valencia, España</li></ul>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Finalidad del tratamiento</h2>
+      <p>Los datos facilitados mediante el formulario de contacto se utilizan exclusivamente para gestionar tu solicitud de presupuesto, responder consultas y mantener comunicación comercial relacionada con nuestros servicios de carpintería y ebanistería.</p>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Legitimación</h2>
+      <p>La base legal es el consentimiento del interesado (art. 6.1.a RGPD) al enviar voluntariamente sus datos a través del formulario.</p>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Derechos del interesado</h2>
+      <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a info@vetamans.com con el asunto "Protección de Datos".</p>
+      <h2 class="text-xl font-serif text-vetamans-nogal mt-8">Conservación de datos</h2>
+      <p>Conservamos tus datos el tiempo necesario para la finalidad del tratamiento y durante los plazos legales de prescripción de responsabilidades.</p>
+    </section>
+  </main>
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
+</Layout>

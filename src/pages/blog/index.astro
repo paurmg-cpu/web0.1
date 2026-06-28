@@ -3,6 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 
+let settings: Record<string, string> = {};
+try {
+  const res = await fetch('https://api.vetamans.com/api/settings');
+  if (res.ok) settings = await res.json();
+} catch (e) {}
+
 const articles = [
   { slug: 'tipos-madera-cocinas', titulo: 'Las mejores maderas para cocinas: guía completa 2025', descripcion: 'Descubre qué tipos de madera son ideales para cocinas. Roble, nogal, cerezo, fresno... Analizamos durabilidad, resistencia a la humedad y estética.', fecha: '2025-03-15', categoria: 'Materiales', keywords: 'mejores maderas para cocina, madera cocina durabilidad, que madera usar en cocina' },
   { slug: 'mueble-a-medida-guia', titulo: 'Cómo encargar un mueble a medida: guía paso a paso', descripcion: 'Todo lo que necesitas saber antes de encargar un mueble personalizado. Desde la idea inicial hasta el montaje final: materiales, plazos, precios y consejos de un maestro ebanista.', fecha: '2025-04-02', categoria: 'Guías', keywords: 'como encargar mueble a medida, mueble personalizado precio, cuanto tarda mueble a medida' },
@@ -15,6 +21,7 @@ const articles = [
   description="Blog de ebanistería y carpintería artesanal. Artículos sobre maderas, diseño de muebles a medida, restauración, tendencias y consejos de nuestros maestros ebanistas en Gandia."
   canonicalURL="https://www.vetamans.com/blog"
   breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Blog', url: '/blog' }]}
+  whatsapp={settings.whatsapp || '34XXXXXXXXX'}
 >
   <Nav />
   <main class="pt-24 px-8 max-w-4xl mx-auto">
@@ -39,5 +46,5 @@ const articles = [
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
 </Layout>
