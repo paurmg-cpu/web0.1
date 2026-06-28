@@ -58,6 +58,10 @@ import Footer from '../components/Footer.astro';
               <label for="email" class="text-sm font-semibold text-vetamans-carbon uppercase tracking-wider">Email de contacto</label>
               <input type="email" id="email" name="email" required placeholder="juan@ejemplo.com" class="bg-vetamans-lino border-b border-vetamans-roble/40 p-3 focus:outline-none focus:border-vetamans-nogal transition-colors" />
             </div>
+            <div class="flex flex-col gap-2">
+              <label for="telefono" class="text-sm font-semibold text-vetamans-carbon uppercase tracking-wider">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="Ej. 600 111 222" class="bg-vetamans-lino border-b border-vetamans-roble/40 p-3 focus:outline-none focus:border-vetamans-nogal transition-colors" />
+            </div>
           </div>
 
           <div class="flex flex-col gap-4">
@@ -128,15 +132,27 @@ import Footer from '../components/Footer.astro';
       return;
     }
 
-    // Simular envío (cuando haya backend, aquí irá fetch)
     if (btn) {
       btn.disabled = true;
       btn.textContent = 'Enviando...';
     }
 
     try {
-      // Simulación de envío - reemplazar con fetch real cuando haya API
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const res = await fetch('https://crm.vetamans.com/api/webhook/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nombre,
+          email,
+          telefono: form.telefono?.value.trim() || '',
+          mensaje,
+          servicio: form.servicio?.value || null,
+          origen: 'web',
+        }),
+      });
+
+      if (!res.ok) throw new Error('Error del servidor');
+
       showFeedback('¡Gracias por tu solicitud! Te contactaremos en 24-48 horas.', 'success');
       form.reset();
     } catch {
