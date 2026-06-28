@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "vetamans.com"
+        }
+      ],
+      "destination": "https://www.vetamans.com/:path*",
+      "permanent": true
+    }
+  ]
+}
