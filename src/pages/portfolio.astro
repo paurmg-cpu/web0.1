@@ -61,7 +61,7 @@ const categoriaLabels: Record<string, string> = {
                 {items.map(p => (
                   <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10 rounded-sm">
                     {p.imagenes?.[0] ? (
-                      <img src={p.imagenes[0]} alt={p.titulo} loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <img src={p.imagenes[0]} alt={p.titulo} loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer" onclick="openLightbox('{p.imagenes[0]}')" />
                     ) : (
                       <div class="w-full h-full flex items-center justify-center text-4xl">🪵</div>
                     )}
@@ -81,4 +81,14 @@ const categoriaLabels: Record<string, string> = {
     </section>
   </main>
   <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} instagram={settings.instagram} facebook={settings.facebook} />
+  <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center cursor-pointer" onclick="this.classList.add('hidden')">
+    <img id="lightbox-img" src="" alt="" class="max-w-[95vw] max-h-[95vh] object-contain" />
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.remove('hidden');
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+  </script>
 </Layout>

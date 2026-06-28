@@ -117,4 +117,11 @@ const links = [
   menu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => setOpen(false));
   });
+
+  // Cerrar al hacer clic fuera del menú
+  document.addEventListener('click', (e) => {
+    if (open && !toggle?.contains(e.target) && !menu?.contains(e.target)) {
+      setOpen(false);
+    }
+  });
 </script>
