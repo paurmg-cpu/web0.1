@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Nosotros"
+  description="Vetamans nace de la fusión entre la experiencia del maestro ebanista Jorge Rondón y la visión de Pau Magraner. Pasión artesanal, rigor técnico y diseño contemporáneo en Gandia."
+  canonicalURL="https://vetamans.com/nosotros"
+>
+  <Nav currentPage="/nosotros" />
+  <main class="pt-24 px-8 max-w-7xl mx-auto">
+    <section class="py-20 flex flex-col md:flex-row gap-16 items-center">
+      <div class="md:w-1/2">
+        <h1 class="text-4xl md:text-6xl font-serif text-vetamans-nogal mb-8 leading-tight">
+          La unión de la <br/> <span class="italic">maestría y la pasión</span>
+        </h1>
+        <div class="space-y-6 text-vetamans-carbon font-light text-lg leading-relaxed">
+          <p>
+            Vetamans nace de la fusión de dos mundos complementarios. Por un lado, la experiencia y el rigor académico de <strong>Jorge Rondón</strong>, maestro ebanista venezolano que dedicó años a formar nuevas generaciones de carpinteros mientras dirigía su propio taller.
+          </p>
+          <p>
+            Por otro, el entusiasmo y la visión de <strong>Pau Magraner</strong>, un joven apasionado por la excelencia y el trabajo bien hecho.
+          </p>
+          <p>
+            En Vetamans, no solo fabricamos muebles; unimos la tradición artesanal, transmitida a través de la enseñanza y la práctica, con la energía de quien busca la perfección en cada detalle.
+          </p>
+        </div>
+      </div>
+      <div class="md:w-1/2 grid grid-cols-2 gap-4">
+        <div class="aspect-square bg-vetamans-roble/20 rounded-sm overflow-hidden">
+          <img src="/taller-detalle1.jpg" alt="Detalle del taller de ebanistería Vetamans" class="w-full h-full object-cover opacity-80" width="400" height="400" loading="lazy" decoding="async" />
+        </div>
+        <div class="aspect-square bg-vetamans-nogal/20 rounded-sm overflow-hidden mt-8">
+          <img src="/taller-detalle2.jpg" alt="Artesanía en madera - Taller Vetamans Gandia" class="w-full h-full object-cover opacity-80" width="400" height="400" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 border-t border-vetamans-roble/30">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-serif text-vetamans-nogal">Nuestra Filosofía</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div>
+          <div class="text-vetamans-roble text-4xl mb-4 font-serif">01.</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-2">Rigor Técnico</h3>
+          <p class="text-vetamans-carbon font-light">Cada corte, cada ensamble y cada acabado sigue los más estrictos estándares de la ebanistería clásica.</p>
+        </div>
+        <div>
+          <div class="text-vetamans-roble text-4xl mb-4 font-serif">02.</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-2">Diseño Vivo</h3>
+          <p class="text-vetamans-carbon font-light">Adaptamos la madera a las necesidades del siglo XXI, creando piezas funcionales y estéticas.</p>
+        </div>
+        <div>
+          <div class="text-vetamans-roble text-4xl mb-4 font-serif">03.</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-2">Solución Integral</h3>
+          <p class="text-vetamans-carbon font-light">Desde el primer boceto hasta el montaje final, nos encargamos de todo el proceso.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

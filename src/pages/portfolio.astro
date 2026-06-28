@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Portfolio"
+  description="Galería de proyectos de ebanistería artesanal. Cocinas integrales, vestidores a medida, pérgolas y estructuras de madera. Cada pieza es una obra única diseñada y fabricada en nuestro taller de Gandia."
+  canonicalURL="https://vetamans.com/portfolio"
+>
+  <Nav currentPage="/portfolio" />
+  <main class="pt-24 px-8 max-w-7xl mx-auto">
+    <section class="py-20">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-serif text-vetamans-nogal mb-4">Nuestras Obras</h1>
+        <p class="text-vetamans-carbon font-light max-w-2xl mx-auto">
+          Cada pieza es el resultado de horas de precisión, respeto por la materia prima y una búsqueda constante de la perfección.
+        </p>
+      </div>
+
+      <div class="space-y-24">
+        <!-- Cocinas -->
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-2xl font-serif text-vetamans-nogal">Cocinas Integrales</h2>
+            <div class="flex-1 h-px bg-vetamans-roble/30"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/cocinas/cocina-1.jpg" alt="Cocina a medida de lujo en Gandia - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/cocinas/cocina-2.jpg" alt="Diseño de cocina integral personalizada - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/cocinas/cocina-3.jpg" alt="Acabados de ebanistería en cocinas modernas - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/cocinas/cocina-4.jpg" alt="Cocina artesanal de alta gama Valencia - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/cocinas/cocina-5.jpg" alt="Detalle de madera en cocina de lujo - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Vestidores -->
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-2xl font-serif text-vetamans-nogal">Vestidores y Almacenaje</h2>
+            <div class="flex-1 h-px bg-vetamans-roble/30"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/vestidores/vestidor-1.jpg" alt="Vestidor a medida diseño minimalista - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/vestidores/vestidor-2.jpg" alt="Armarios empotrados de lujo Gandia - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/vestidores/vestidor-3.jpg" alt="Organización de vestidores artesanales - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/vestidores/vestidor-4.jpg" alt="Madera noble en vestidores personalizados - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/vestidores/vestidor-5.jpg" alt="Detalle de acabado en vestidor de lujo - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Pérgolas / Exterior -->
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <h2 class="text-2xl font-serif text-vetamans-nogal">Estructuras y Exteriores</h2>
+            <div class="flex-1 h-px bg-vetamans-roble/30"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/pergolas/pergola-1.jpg" alt="Pérgola de madera tratada para exterior Gandia - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/pergolas/pergola-2.jpg" alt="Diseño de pérgolas artesanales Valencia - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/pergolas/pergola-3.jpg" alt="Estructuras de madera para jardín de lujo - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/pergolas/pergola-4.jpg" alt="Pérgola moderna con acabados naturales - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+            <div class="group overflow-hidden relative aspect-square bg-vetamans-roble/10">
+              <img src="/pergolas/pergola-5.jpg" alt="Carpintería exterior de alta calidad Marina Alta - Vetamans" loading="lazy" decoding="async" width="600" height="600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

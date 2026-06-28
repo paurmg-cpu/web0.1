@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Muebles a Medida"
+  description="Mobiliario personalizado: vestidores, librerías, mesas y muebles de salón diseñados a medida en nuestro taller de Gandia. Piezas únicas con maderas nobles y ensambles tradicionales."
+  canonicalURL="https://vetamans.com/servicios/medida"
+>
+  <Nav currentPage="/servicios" />
+  <main class="pt-24 px-8 max-w-7xl mx-auto">
+    <section class="py-20">
+      <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
+        <div class="md:w-1/2 order-2 md:order-1">
+          <img src="/vestidores/vestidor-2.jpg" alt="Mueble a medida personalizado Vetamans" class="rounded-sm shadow-2xl w-full" width="700" height="500" loading="lazy" decoding="async" />
+        </div>
+        <div class="md:w-1/2 order-1 md:order-2">
+          <h1 class="text-4xl md:text-5xl font-serif text-vetamans-nogal mb-6 leading-tight">
+            Mobiliario <br/> <span class="italic">Personalizado</span>
+          </h1>
+          <p class="text-vetamans-carbon font-light text-lg mb-8 leading-relaxed">
+            Piezas que no existen en ningún catálogo. Vestidores, librerías, mesas de comedor o muebles de salón que se adaptan exactamente a tu espacio y estilo de vida.
+          </p>
+          <a href="/contacto" class="inline-block bg-vetamans-nogal text-vetamans-lino px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-carbon transition-all shadow-xl">
+            Solicitar Presupuesto
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">01</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Diseño Ergonómico</h3>
+          <p class="text-vetamans-carbon font-light">Cada pieza se diseña pensando en cómo la usas. Alturas, profundidades y accesos adaptados a tu cuerpo y movimientos.</p>
+        </div>
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">02</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Maderas Seleccionadas</h3>
+          <p class="text-vetamans-carbon font-light">Elegimos cada tabla por su veta, color y propiedades. Roble, nogal, cerezo o fresno: la madera adecuada para cada proyecto.</p>
+        </div>
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">03</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Ensambles Tradicionales</h3>
+          <p class="text-vetamans-carbon font-light">Cola de milano, espiga, caja y mortaja. Uniones que garantizan décadas de uso sin un solo tornillo visible.</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-serif text-vetamans-nogal mb-8">Proyectos de Mobiliario</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="aspect-square bg-vetamans-roble/10 overflow-hidden rounded-sm">
+            <img src="/vestidores/vestidor-3.jpg" alt="Vestidor a medida artesanal Vetamans" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="aspect-square bg-vetamans-roble/10 overflow-hidden rounded-sm">
+            <img src="/vestidores/vestidor-4.jpg" alt="Armario empotrado de lujo Vetamans" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="aspect-square bg-vetamans-roble/10 overflow-hidden rounded-sm">
+            <img src="/vestidores/vestidor-5.jpg" alt="Detalle mobiliario personalizado Vetamans" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

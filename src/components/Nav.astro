@@ -1,0 +1,120 @@
+---
+export interface Props {
+  currentPage?: string;
+}
+const { currentPage = '' } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/servicios', label: 'Servicios' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/contacto', label: 'Contacto' },
+];
+---
+
+<nav
+  id="main-nav"
+  class="fixed top-0 left-0 w-full bg-vetamans-lino/90 backdrop-blur-sm z-50"
+>
+  <div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+    <a href="/" class="text-2xl font-serif font-bold text-vetamans-nogal" aria-label="Vetamans - Inicio">
+      VETAMANS
+    </a>
+
+    <!-- Desktop -->
+    <div class="hidden md:flex items-center gap-8 font-medium text-sm uppercase tracking-widest">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class={`hover:text-vetamans-roble transition-colors ${
+            currentPage === link.href ? 'text-vetamans-nogal font-bold' : ''
+          }`}
+          aria-current={currentPage === link.href ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Desktop CTA -->
+    <a
+      href="/contacto"
+      class="hidden md:inline-block bg-vetamans-nogal text-vetamans-lino px-6 py-2 rounded-sm text-sm font-semibold hover:bg-vetamans-carbon transition-all"
+    >
+      Presupuesto
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-vetamans-nogal transition-transform duration-300" id="bar1"></span>
+      <span class="block w-6 h-0.5 bg-vetamans-nogal transition-opacity duration-300" id="bar2"></span>
+      <span class="block w-6 h-0.5 bg-vetamans-nogal transition-transform duration-300" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="md:hidden bg-vetamans-lino border-t border-vetamans-roble/20 hidden"
+  >
+    <div class="flex flex-col px-8 py-6 gap-4">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class={`text-lg font-medium uppercase tracking-widest hover:text-vetamans-nogal transition-colors ${
+            currentPage === link.href ? 'text-vetamans-nogal font-bold' : 'text-vetamans-carbon'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="/contacto"
+        class="bg-vetamans-nogal text-vetamans-lino px-6 py-3 rounded-sm text-sm font-semibold text-center hover:bg-vetamans-carbon transition-all mt-2"
+      >
+        Solicitar Presupuesto
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+
+  let open = false;
+
+  function setOpen(state) {
+    open = state;
+    if (state) {
+      menu?.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Cerrar menú');
+      if (bar1) { bar1.style.transform = 'rotate(45deg) translateY(7px)'; }
+      if (bar2) { bar2.style.opacity = '0'; }
+      if (bar3) { bar3.style.transform = 'rotate(-45deg) translateY(-7px)'; }
+    } else {
+      menu?.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menú');
+      if (bar1) { bar1.style.transform = ''; }
+      if (bar2) { bar2.style.opacity = ''; }
+      if (bar3) { bar3.style.transform = ''; }
+    }
+  }
+
+  toggle?.addEventListener('click', () => setOpen(!open));
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+</script>

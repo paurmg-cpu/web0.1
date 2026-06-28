@@ -1,0 +1,58 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Restauración de Muebles"
+  description="Restauración profesional de muebles antiguos en Gandia. Técnicas tradicionales de decapado, barnizado y sustitución de piezas. Devolvemos la gloria a tus muebles con valor histórico."
+  canonicalURL="https://vetamans.com/servicios/restauracion"
+>
+  <Nav currentPage="/servicios" />
+  <main class="pt-24 px-8 max-w-7xl mx-auto">
+    <section class="py-20">
+      <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
+        <div class="md:w-1/2">
+          <h1 class="text-4xl md:text-5xl font-serif text-vetamans-nogal mb-6 leading-tight">
+            Restauración <br/> <span class="italic">de Alta Gama</span>
+          </h1>
+          <p class="text-vetamans-carbon font-light text-lg mb-8 leading-relaxed">
+            Rescatamos el valor histórico y sentimental de tus muebles antiguos. No se trata de "pintar", sino de restaurar la madera con rigor académico y respeto por la pieza original.
+          </p>
+          <a href="/contacto" class="inline-block bg-vetamans-nogal text-vetamans-lino px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-carbon transition-all shadow-xl">
+            Solicitar Presupuesto
+          </a>
+        </div>
+        <div class="md:w-1/2">
+          <img src="/pergolas/pergola-2.jpg" alt="Restauración profesional de muebles Vetamans" class="rounded-sm shadow-2xl w-full" width="700" height="500" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">01</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Diagnóstico Técnico</h3>
+          <p class="text-vetamans-carbon font-light">Analizamos la madera, las uniones y los acabados originales para determinar el tratamiento más respetuoso y eficaz.</p>
+        </div>
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">02</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Técnicas Tradicionales</h3>
+          <p class="text-vetamans-carbon font-light">Decapado manual, barnizado a muñequilla, sustitución de piezas dañadas con maderas compatibles en veta y color.</p>
+        </div>
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">03</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Conservación de la Esencia</h3>
+          <p class="text-vetamans-carbon font-light">Respetamos la pátina del tiempo y la historia de cada pieza. Restauramos, no desnaturalizamos.</p>
+        </div>
+      </div>
+
+      <div class="bg-vetamans-nogal text-vetamans-lino p-12 rounded-sm text-center">
+        <h2 class="text-3xl font-serif mb-6">¿Tienes un mueble con historia?</h2>
+        <p class="font-light text-lg mb-8 max-w-2xl mx-auto">Cada mueble antiguo guarda una historia. Cuéntanos la tuya y te ayudaremos a preservarla para las próximas generaciones.</p>
+        <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-nogal px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-roble transition-all">Solicitar Valoración</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

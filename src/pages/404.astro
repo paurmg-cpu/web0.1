@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Página no encontrada"
+  description="La página que buscas no existe. Regresa al inicio o contacta con Vetamans para ayudarte con tu proyecto de carpintería."
+  canonicalURL="https://vetamans.com/404"
+>
+  <Nav />
+  <main class="min-h-screen flex items-center justify-center px-8 pt-24">
+    <div class="text-center max-w-xl">
+      <div class="text-8xl font-serif text-vetamans-roble/30 mb-6">404</div>
+      <h1 class="text-3xl md:text-4xl font-serif text-vetamans-nogal mb-4">Página no encontrada</h1>
+      <p class="text-vetamans-carbon font-light text-lg mb-8 leading-relaxed">
+        Parece que la página que buscas se ha desvanecido como viruta al viento. Regresa al inicio o solicita información sobre tu proyecto.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a href="/" class="bg-vetamans-nogal text-vetamans-lino px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-carbon transition-all">
+          Volver al Inicio
+        </a>
+        <a href="/contacto" class="border border-vetamans-nogal text-vetamans-nogal px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-lino transition-all">
+          Contactar
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

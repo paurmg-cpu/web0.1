@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonicalURL?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = 'Vetamans: Maestría y pasión en ebanistería de lujo. Especialistas en cocinas a medida, muebles personalizados y restauración de alta gama en Gandia y Valencia.',
+  canonicalURL = 'https://vetamans.com',
+  image = '/og-image.jpg',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="carpintería Gandia, muebles a medida Valencia, ebanistería de lujo, restauración de muebles Gandia, cocinas a medida Marina Alta" />
+    <meta name="author" content="Vetamans" />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+    <title>{title} | Vetamans - Ebanistería de Lujo</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | Vetamans - Ebanistería de Lujo`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Vetamans" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={`${title} | Vetamans - Ebanistería de Lujo`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'HomeAndConstructionBusiness',
+      'name': 'Vetamans',
+      'description': description,
+      'url': 'https://vetamans.com',
+      'telephone': '+34-XXX-XXX-XXX',
+      'email': 'info@vetamans.com',
+      'address': {
+        '@type': 'PostalAddress',
+        'addressLocality': 'Gandia',
+        'addressRegion': 'Valencia',
+        'addressCountry': 'ES',
+      },
+      'geo': {
+        '@type': 'GeoCoordinates',
+        'latitude': 38.9667,
+        'longitude': -0.1833,
+      },
+      'areaServed': {
+        '@type': 'AdministrativeArea',
+        'name': 'Marina Alta',
+      },
+      'image': `https://vetamans.com${image}`,
+      'priceRange': '€€€',
+    })} />
+  </head>
+  <body class="bg-vetamans-lino text-vetamans-carbon font-sans scroll-smooth antialiased">
+    <slot />
+  </body>
+</html>

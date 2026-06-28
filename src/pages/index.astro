@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Inicio"
+  description="Vetamans: Ebanistería de lujo en Gandia. Cocinas a medida, muebles personalizados y restauración artesanal. Soluciones integrales en madera para hogar y negocio en la Marina Alta."
+  canonicalURL="https://vetamans.com"
+>
+  <Nav currentPage="/" />
+  <main>
+    <!-- Hero Section -->
+    <section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-vetamans-carbon opacity-20 z-10"></div>
+      <div class="absolute inset-0 bg-[url('/hero-wood.jpg')] bg-cover bg-center z-0"></div>
+
+      <div class="relative z-20 text-center px-4">
+        <h1 class="text-5xl md:text-7xl font-serif text-vetamans-nogal mb-6 leading-tight">
+          Maestría y Pasión <br/> <span class="italic">en cada veta</span>
+        </h1>
+        <p class="text-lg md:text-xl text-vetamans-carbon max-w-2xl mx-auto mb-10 font-light">
+          Soluciones integrales de ebanistería artesanal en Gandia y la Marina Alta.
+          Donde la técnica clásica se encuentra con el diseño contemporáneo.
+        </p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <a href="/contacto" class="bg-vetamans-nogal text-vetamans-lino px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-carbon transition-all shadow-xl">
+            Solicitar Presupuesto
+          </a>
+          <a href="/portfolio" class="bg-transparent border border-vetamans-nogal text-vetamans-nogal px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-lino transition-all">
+            Ver Proyectos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Services Section -->
+    <section class="py-24 px-8 max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-serif text-vetamans-nogal mb-4">Nuestras Especialidades</h2>
+        <div class="w-20 h-1 bg-vetamans-roble mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- Servicio 1: Cocinas -->
+        <div class="group">
+          <div class="overflow-hidden mb-6 aspect-[4/5] bg-vetamans-roble/10 relative">
+            <div class="absolute inset-0 group-hover:scale-110 transition-transform duration-700 bg-[url('/cocinas/cocina-1.jpg')] bg-cover bg-center"></div>
+          </div>
+          <h3 class="text-2xl font-serif text-vetamans-nogal mb-2">Cocinas Integrales</h3>
+          <p class="text-vetamans-carbon font-light mb-4">Optimización de espacio y funcionalidad con acabados de alta gama.</p>
+          <a href="/servicios/cocinas" class="text-sm font-bold uppercase tracking-tighter text-vetamans-roble group-hover:text-vetamans-nogal transition-colors">Saber más &rarr;</a>
+        </div>
+
+        <!-- Servicio 2: Muebles a Medida -->
+        <div class="group">
+          <div class="overflow-hidden mb-6 aspect-[4/5] bg-vetamans-roble/10 relative">
+            <div class="absolute inset-0 group-hover:scale-110 transition-transform duration-700 bg-[url('/vestidores/vestidor-1.jpg')] bg-cover bg-center"></div>
+          </div>
+          <h3 class="text-2xl font-serif text-vetamans-nogal mb-2">Muebles a Medida</h3>
+          <p class="text-vetamans-carbon font-light mb-4">Piezas únicas diseñadas para encajar perfectamente en tu vida y espacio.</p>
+          <a href="/servicios/medida" class="text-sm font-bold uppercase tracking-tighter text-vetamans-roble group-hover:text-vetamans-nogal transition-colors">Saber más &rarr;</a>
+        </div>
+
+        <!-- Servicio 3: Restauración -->
+        <div class="group">
+          <div class="overflow-hidden mb-6 aspect-[4/5] bg-vetamans-roble/10 relative">
+            <div class="absolute inset-0 group-hover:scale-110 transition-transform duration-700 bg-[url('/pergolas/pergola-1.jpg')] bg-cover bg-center"></div>
+          </div>
+          <h3 class="text-2xl font-serif text-vetamans-nogal mb-2">Restauración</h3>
+          <p class="text-vetamans-carbon font-light mb-4">Devolvemos la gloria y el alma a piezas antiguas con rigor académico.</p>
+          <a href="/servicios/restauracion" class="text-sm font-bold uppercase tracking-tighter text-vetamans-roble group-hover:text-vetamans-nogal transition-colors">Saber más &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

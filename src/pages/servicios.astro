@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Servicios"
+  description="Servicios de ebanistería de lujo: cocinas a medida, mobiliario personalizado y restauración de alta gama. Diseño, fabricación artesanal y montaje en Gandia y la Marina Alta."
+  canonicalURL="https://vetamans.com/servicios"
+>
+  <Nav currentPage="/servicios" />
+  <main class="pt-24 px-8 max-w-7xl mx-auto">
+    <section class="py-20">
+      <div class="text-center mb-20">
+        <h1 class="text-4xl md:text-6xl font-serif text-vetamans-nogal mb-6">Soluciones Integrales de <br/> <span class="italic">Ebanistería de Lujo</span></h1>
+        <p class="text-vetamans-carbon font-light max-w-3xl mx-auto text-lg">
+          No nos limitamos a fabricar muebles. Diseñamos espacios, recuperamos historias y optimizamos cada centímetro de madera con precisión quirúrgica.
+        </p>
+      </div>
+
+      <div class="space-y-32">
+        <!-- Servicio 1: Cocinas -->
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="md:w-1/2 order-2 md:order-1">
+            <h2 class="text-3xl font-serif text-vetamans-nogal mb-6">Cocinas a Medida</h2>
+            <p class="text-vetamans-carbon font-light text-lg mb-6 leading-relaxed">
+              La cocina es el corazón del hogar. Diseñamos espacios donde la funcionalidad no sacrifica la estética. Desde el estudio de flujos de trabajo hasta la selección de maderas resistentes y acabados impecables.
+            </p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Optimización de almacenamiento inteligente.
+              </li>
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Integración perfecta de electrodomésticos.
+              </li>
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Materiales de alta durabilidad y tacto noble.
+              </li>
+            </ul>
+            <a href="/contacto" class="inline-block bg-vetamans-nogal text-vetamans-lino px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-carbon transition-all">Diseñar mi cocina</a>
+          </div>
+          <div class="md:w-1/2 order-1 md:order-2">
+            <img src="/cocinas/cocina-1.jpg" alt="Detalle Cocina Vetamans" class="rounded-sm shadow-2xl" width="600" height="400" loading="lazy" decoding="async" />
+          </div>
+        </div>
+
+        <!-- Servicio 2: Muebles a Medida -->
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="md:w-1/2">
+            <img src="/vestidores/vestidor-1.jpg" alt="Mueble a medida Vetamans" class="rounded-sm shadow-2xl" width="600" height="400" loading="lazy" decoding="async" />
+          </div>
+          <div class="md:w-1/2">
+            <h2 class="text-3xl font-serif text-vetamans-nogal mb-6">Mobiliario Personalizado</h2>
+            <p class="text-vetamans-carbon font-light text-lg mb-6 leading-relaxed">
+              Creamos piezas que no existen en ningún catálogo. Vestidores, librerías, mesas de comedor o muebles de salón que se adaptan exactamente a la geometría de tu espacio y a tu estilo de vida.
+            </p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Diseño basado en la ergonomía del usuario.
+              </li>
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Maderas seleccionadas por veta y color.
+              </li>
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Ensambles tradicionales de alta resistencia.
+              </li>
+            </ul>
+            <a href="/contacto" class="inline-block bg-vetamans-nogal text-vetamans-lino px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-carbon transition-all">Solicitar mueble a medida</a>
+          </div>
+        </div>
+
+        <!-- Servicio 3: Restauración -->
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="md:w-1/2 order-2 md:order-1">
+            <h2 class="text-3xl font-serif text-vetamans-nogal mb-6">Restauración de Alta Gama</h2>
+            <p class="text-vetamans-carbon font-light text-lg mb-6 leading-relaxed">
+              Rescatamos el valor histórico y sentimental de tus muebles antiguos. No se trata de "pintar", sino de restaurar la madera, respetar la pátina del tiempo y devolver la funcionalidad original.
+            </p>
+            <ul class="space-y-4 mb-8">
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Técnicas de decapado y barnizado tradicionales.
+              </li>
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Sustitución de piezas dañadas con maderas compatibles.
+              </li>
+              <li class="flex items-center gap-3 text-vetamans-carbon italic">
+                <span class="text-vetamans-roble">✓</span> Conservación de la esencia original de la pieza.
+              </li>
+            </ul>
+            <a href="/contacto" class="inline-block bg-vetamans-nogal text-vetamans-lino px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-carbon transition-all">Restaurar mi mueble</a>
+          </div>
+          <div class="md:w-1/2 order-1 md:order-2">
+            <img src="/pergolas/pergola-1.jpg" alt="Restauración Vetamans" class="rounded-sm shadow-2xl" width="600" height="400" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección Final: El Proceso -->
+      <div class="mt-32 py-20 bg-vetamans-nogal text-vetamans-lino rounded-sm px-8 text-center">
+        <h2 class="text-3xl font-serif mb-12">Nuestro Proceso de Trabajo</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="text-4xl font-serif mb-4 opacity-50">01</div>
+            <h3 class="text-xl font-bold mb-2">Consulta</h3>
+            <p class="font-light opacity-80">Entendemos tu necesidad y analizamos el espacio.</p>
+          </div>
+          <div>
+            <div class="text-4xl font-serif mb-4 opacity-50">02</div>
+            <h3 class="text-xl font-bold mb-2">Diseño</h3>
+            <p class="font-light opacity-80">Creamos el plano técnico y seleccionamos la madera.</p>
+          </div>
+          <div>
+            <div class="text-4xl font-serif mb-4 opacity-50">03</div>
+            <h3 class="text-xl font-bold mb-2">Ejecución</h3>
+            <p class="font-light opacity-80">Artesanía pura en nuestro taller de Gandia.</p>
+          </div>
+          <div>
+            <div class="text-4xl font-serif mb-4 opacity-50">04</div>
+            <h3 class="text-xl font-bold mb-2">Montaje</h3>
+            <p class="font-light opacity-80">Instalación precisa y acabados finales in situ.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

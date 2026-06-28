@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Cocinas a Medida"
+  description="Cocinas integrales de lujo diseñadas y fabricadas artesanalmente en Gandia. Optimización de espacio, materiales nobles y acabados impecables. Presupuesto sin compromiso."
+  canonicalURL="https://vetamans.com/servicios/cocinas"
+>
+  <Nav currentPage="/servicios" />
+  <main class="pt-24 px-8 max-w-7xl mx-auto">
+    <section class="py-20">
+      <!-- Hero servicio -->
+      <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
+        <div class="md:w-1/2">
+          <h1 class="text-4xl md:text-5xl font-serif text-vetamans-nogal mb-6 leading-tight">
+            Cocinas a Medida <br/> <span class="italic">de Alta Gama</span>
+          </h1>
+          <p class="text-vetamans-carbon font-light text-lg mb-8 leading-relaxed">
+            La cocina es el corazón del hogar, y merece un tratamiento excepcional. Diseñamos cada centímetro para maximizar funcionalidad sin renunciar a la belleza de la madera noble.
+          </p>
+          <a href="/contacto" class="inline-block bg-vetamans-nogal text-vetamans-lino px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-carbon transition-all shadow-xl">
+            Solicitar Presupuesto
+          </a>
+        </div>
+        <div class="md:w-1/2">
+          <img src="/cocinas/cocina-1.jpg" alt="Cocina a medida de lujo Vetamans" class="rounded-sm shadow-2xl w-full" width="700" height="500" loading="lazy" decoding="async" />
+        </div>
+      </div>
+
+      <!-- Características -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-24">
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">01</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Diseño Personalizado</h3>
+          <p class="text-vetamans-carbon font-light">Estudiamos tus hábitos, el espacio disponible y tus preferencias estéticas para crear una cocina que se adapte a tu vida.</p>
+        </div>
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">02</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Materiales Premium</h3>
+          <p class="text-vetamans-carbon font-light">Seleccionamos maderas nobles con tratamientos específicos para resistir humedad, calor y uso diario intensivo.</p>
+        </div>
+        <div>
+          <div class="text-vetamans-roble text-4xl font-serif mb-4">03</div>
+          <h3 class="text-xl font-bold text-vetamans-nogal mb-3">Instalación Integral</h3>
+          <p class="text-vetamans-carbon font-light">Nos encargamos de todo: fabricación en taller, integración de electrodomésticos y montaje preciso in situ.</p>
+        </div>
+      </div>
+
+      <!-- Galería -->
+      <div>
+        <h2 class="text-2xl font-serif text-vetamans-nogal mb-8">Proyectos de Cocinas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="aspect-square bg-vetamans-roble/10 overflow-hidden rounded-sm">
+            <img src="/cocinas/cocina-2.jpg" alt="Cocina integral personalizada Vetamans" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="aspect-square bg-vetamans-roble/10 overflow-hidden rounded-sm">
+            <img src="/cocinas/cocina-3.jpg" alt="Acabados de ebanistería en cocina Vetamans" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+          </div>
+          <div class="aspect-square bg-vetamans-roble/10 overflow-hidden rounded-sm">
+            <img src="/cocinas/cocina-4.jpg" alt="Cocina artesanal de alta gama Vetamans" loading="lazy" decoding="async" width="400" height="400" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
