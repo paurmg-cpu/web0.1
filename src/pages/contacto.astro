@@ -138,7 +138,7 @@ import Footer from '../components/Footer.astro';
     }
 
     try {
-      const res = await fetch('https://crm.vetamans.com/api/webhook/lead', {
+      const res = await fetch('https://api.vetamans.com/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
