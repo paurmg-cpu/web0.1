@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  'headline': '¿Restaurar o comprar nuevo? La guía definitiva para decidir',
+  'description': 'Analizamos cuándo merece la pena restaurar un mueble antiguo y cuándo es mejor comprar uno nuevo. Factores como el valor sentimental, la calidad de la madera y el coste de restauración.',
+  'author': { '@type': 'Person', 'name': 'Vetamans' },
+  'publisher': { '@type': 'Organization', 'name': 'Vetamans', 'logo': { '@type': 'ImageObject', 'url': 'https://www.vetamans.com/og-image.jpg' } },
+  'datePublished': '2025-04-20',
+  'dateModified': '2025-04-20',
+  'mainEntityOfPage': { '@type': 'WebPage', '@id': 'https://www.vetamans.com/blog/restauracion-o-comprar' },
+};
+---
+
+<Layout
+  title="¿Restaurar o comprar nuevo? Guía definitiva"
+  description="Analizamos cuándo merece la pena restaurar un mueble antiguo y cuándo es mejor comprar uno nuevo. Valor sentimental, costes, calidad de la madera y sostenibilidad."
+  canonicalURL="https://www.vetamans.com/blog/restauracion-o-comprar"
+  pageType="Article"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Restaurar o comprar', url: '/blog/restauracion-o-comprar' }]}
+>
+  <Nav />
+  <main class="pt-24 px-8 max-w-3xl mx-auto">
+    <article class="py-16">
+      <div class="mb-8">
+        <span class="text-xs uppercase tracking-widest font-semibold text-vetamans-roble">Consejos</span>
+        <h1 class="text-4xl md:text-5xl font-serif text-vetamans-nogal mt-3 mb-4 leading-tight">¿Restaurar o comprar nuevo? La guía definitiva para decidir</h1>
+        <p class="text-vetamans-carbon font-light text-lg leading-relaxed">Todos los meses recibimos en el taller la misma consulta: "Tengo este mueble antiguo, ¿merece la pena restaurarlo o es mejor comprar uno nuevo?". La respuesta no es binaria. Depende de la madera, del estado real, del valor emocional y de tu presupuesto. Aquí te damos las claves para decidir con criterio.</p>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-vetamans-carbon font-light leading-relaxed space-y-6">
+        <h2>Señales de que tu mueble merece ser restaurado</h2>
+        <p>Hay muebles que piden a gritos una segunda oportunidad. Estas son las señales inequívocas de que estás ante uno de ellos:</p>
+        <ul>
+          <li><strong>Es de madera maciza.</strong> Toca la parte trasera, los laterales interiores, el fondo de los cajones. Si ves vetas de madera real —no un papel plastificado ni serrín prensado—, tienes un tesoro. La madera maciza de calidad (roble, nogal, caoba, castaño) se puede lijar, reparar y reacabar indefinidamente.</li>
+          <li><strong>Los ensambles son tradicionales.</strong> Abre un cajón y mira las esquinas. Si ves colas de milano, espigas pasantes o ensambles a inglete con refuerzo, estás ante un mueble construido con técnicas que hoy costarían una fortuna replicar.</li>
+          <li><strong>Los daños son superficiales.</strong> Arañazos, barniz amarillento, manchas de agua, polilla superficial... Todo esto son problemas cosméticos que un buen restaurador resuelve en días. Si las patas están firmes y la estructura no se tambalea, adelante.</li>
+          <li><strong>Tiene chapa de madera noble sobre un alma sana.</strong> Muchos muebles de calidad de los años 20 a 60 llevan chapas de nogal o palisandro sobre pino o castaño. Si el contrachapado no está abombado, la chapa se puede reavivar o sustituir parcialmente.</li>
+        </ul>
+
+        <h2>Cuándo es mejor comprar uno nuevo</h2>
+        <p>No todo mueble antiguo merece ser restaurado. A veces la decisión más sensata —e incluso la más económica— es partir de cero. Compra nuevo si:</p>
+        <ul>
+          <li><strong>Es de aglomerado o DM.</strong> El tablero de fibras o partículas no se restaura, se sustituye. Si tu mueble no es de madera maciza ni de contrachapado de calidad, no malgastes dinero en él.</li>
+          <li><strong>Tiene pudrición estructural.</strong> Si la carcoma ha atravesado patas, largueros o el bastidor principal, la reparación puede implicar sustituir más del 50% de la pieza. A partir de ese punto, te sale más rentable hacer el mueble nuevo —y encima lo diseñas exactamente a tu gusto—.</li>
+          <li><strong>Necesitas funcionalidades modernas.</strong> Un armario de los años 40 no tiene barras extraíbles, zapateros ni iluminación LED. Se lo puedes añadir, sí, pero a veces el coste de adaptar un mueble antiguo a la vida moderna supera al de fabricarlo desde cero con todo integrado.</li>
+          <li><strong>No te gusta.</strong> Parece obvio, pero muchas personas se sienten en deuda con un mueble heredado que sencillamente no encaja en su casa ni en su estilo. No estás obligado a conservar algo que no te hace feliz. Puedes venderlo, donarlo o transformar la madera en otra pieza distinta.</li>
+        </ul>
+
+        <h2>El factor económico: comparativa de costes</h2>
+        <p>Esta es la pregunta que todo el mundo se hace. Aquí tienes una tabla orientativa con precios reales de nuestro taller para muebles tipo (IVA incluido):</p>
+
+        <table class="w-full border-collapse text-left text-sm">
+          <thead>
+            <tr class="border-b border-vetamans-roble/30">
+              <th class="py-3 pr-4 font-semibold text-vetamans-nogal">Tipo de mueble</th>
+              <th class="py-3 pr-4 font-semibold text-vetamans-nogal">Restauración</th>
+              <th class="py-3 pr-4 font-semibold text-vetamans-nogal">Nuevo a medida</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-vetamans-roble/10">
+              <td class="py-3 pr-4">Silla de comedor (por unidad)</td>
+              <td class="py-3 pr-4">80-180€</td>
+              <td class="py-3 pr-4">220-450€</td>
+            </tr>
+            <tr class="border-b border-vetamans-roble/10">
+              <td class="py-3 pr-4">Mesa de centro</td>
+              <td class="py-3 pr-4">250-500€</td>
+              <td class="py-3 pr-4">700-1.500€</td>
+            </tr>
+            <tr class="border-b border-vetamans-roble/10">
+              <td class="py-3 pr-4">Cómoda de 3 cajones</td>
+              <td class="py-3 pr-4">400-800€</td>
+              <td class="py-3 pr-4">1.200-2.200€</td>
+            </tr>
+            <tr class="border-b border-vetamans-roble/10">
+              <td class="py-3 pr-4">Armario ropero 3 puertas</td>
+              <td class="py-3 pr-4">600-1.500€</td>
+              <td class="py-3 pr-4">2.800-4.500€</td>
+            </tr>
+            <tr class="border-b border-vetamans-roble/10">
+              <td class="py-3 pr-4">Biblioteca de pared completa</td>
+              <td class="py-3 pr-4">1.200-2.500€</td>
+              <td class="py-3 pr-4">3.500-6.000€</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Como ves, restaurar cuesta entre un 30% y un 60% menos que fabricar nuevo. Pero ojo: esta comparativa asume que la pieza original parte de un estado recuperable. Si hay que reponer más del 30% de la madera, la restauración puede igualar o superar el precio de un mueble nuevo, y entonces la balanza se inclina claramente hacia lo nuevo. Pide siempre un presupuesto de restauración detallado antes de decidir.</p>
+
+        <h2>El valor sentimental: lo que el dinero no puede comprar</h2>
+        <p>Hay muebles que no valen por lo que costaron, sino por las manos que los tocaron. Una mesa de comedor que ha visto cuatro generaciones de sobremesas, un costurero que perteneció a tu abuela, una cuna que meció a tus hijos... Son objetos cargados de memoria. Cuando un cliente nos trae un mueble así, no hacemos un presupuesto frío: escuchamos su historia. A veces la restauración más cara es la que más merece la pena, porque lo que estás recuperando no es madera —es el olor de la casa de tus padres, las marcas del tiempo en forma de vida vivida—. En estos casos el presupuesto es lo de menos: restaurar es un acto de amor y de respeto por la historia familiar. Y sí, también le sube el valor al mueble: un armario de nogal de 1920 bien restaurado puede valer más en el mercado de antigüedades que cualquier mueble nuevo de gama alta.</p>
+
+        <h2>Sostenibilidad: restaurar es la opción ecológica</h2>
+        <p>No es solo romanticismo. Desde el punto de vista medioambiental, restaurar es imbatible. La fabricación de un mueble nuevo consume madera recién talada, energía para el transporte de la materia prima, electricidad en el taller, combustibles para el reparto, y genera residuos (virutas, serrín, recortes) que, aunque se gestionen, tienen impacto. Restaurar un mueble existente consume un 80% menos de recursos. Además, evita que ese mueble acabe en un vertedero o quemado en una hoguera de poda. Si la sostenibilidad es uno de tus valores, restaurar es una declaración de principios. Y ojo, que muchos clientes nos dicen: "Pero un mueble nuevo también es de madera, ¿no es igualmente natural?". Sí, pero las talas no son neutras. Prolongar la vida de la madera que ya está cortada es la decisión más responsable que puedes tomar como consumidor.</p>
+
+        <h2>Caso real: un armario de nogal de 1920</h2>
+        <p>El año pasado recibimos un armario de nogal macizo fabricado en 1920, procedente de una casa señorial de Xàtiva. Medía 2,80 metros de alto por 3,20 de ancho. Las puertas tenían cuarterones tallados a mano y las bisagras originales de forja seguían funcionando después de un siglo. El problema: la parte inferior estaba comida por termitas, dos puertas estaban desencoladas y el barniz era una costra negra de nicotina acumulada durante décadas. El presupuesto de restauración fue de 2.800€: sustitución del zócalo inferior, tratamiento anticarcoma por inyección, decapado químico suave, reencolado de puertas con cola de conejo (la original de la época), nuevo barniz al agua satinado y montaje in situ con anclaje a pared. El resultado: un armario que parece salido de un palacio, con la pátina del nogal centenario brillando como el primer día. Fabricar uno nuevo de esa envergadura en nogal habría costado más de 7.000€. Restaurar fue, sin duda, la decisión correcta.</p>
+
+        <h2>Conclusión: nuestra recomendación</h2>
+        <p>Como norma general, si el mueble es de madera maciza de calidad (roble, nogal, caoba, castaño, cerezo) y el daño no afecta a más del 30% de su estructura, restaura. No solo ahorras dinero: ganas una pieza con historia que ningún catálogo puede ofrecerte. Si el mueble es de aglomerado, tiene daños estructurales profundos o simplemente no va contigo, invierte en algo nuevo que se ajuste a tu vida real. Y en caso de duda, tráenoslo al taller. En Vetamans hacemos una valoración gratuita y sin compromiso: lo miramos, lo palpamos y te decimos la verdad, aunque a veces la verdad sea "este mueble no merece tu dinero". Porque nuestra reputación vale más que una restauración forzada.</p>
+      </div>
+
+      <div class="mt-16 p-8 bg-vetamans-nogal text-vetamans-lino rounded-sm text-center">
+        <h2 class="text-2xl font-serif mb-4">¿Necesitas ayuda con tu proyecto?</h2>
+        <p class="font-light mb-6">Consúltanos sin compromiso. Te asesoramos sobre materiales, diseño y presupuesto.</p>
+        <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-nogal px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-roble transition-all">Solicitar Asesoramiento</a>
+      </div>
+    </article>
+  </main>
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+</Layout>

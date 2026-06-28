@@ -2,12 +2,26 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': [
+    { '@type': 'Question', 'name': '¿Cuánto cuesta una cocina a medida en Gandia?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'El precio de una cocina a medida depende de los materiales, dimensiones y acabados. En Vetamans ofrecemos presupuesto personalizado sin compromiso tras una visita técnica gratuita. Los precios orientativos parten desde 4.000€ para cocinas integrales en maderas nobles.' } },
+    { '@type': 'Question', 'name': '¿Qué madera es mejor para una cocina?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Para cocinas recomendamos maderas duras y resistentes a la humedad como el roble, nogal o cerezo. Aplicamos tratamientos específicos de barnizado y sellado que garantizan durabilidad frente al vapor, calor y uso diario intensivo.' } },
+    { '@type': 'Question', 'name': '¿Cuánto tardáis en fabricar e instalar una cocina?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'El plazo medio es de 4 a 8 semanas desde la aprobación del diseño. Incluye fabricación en nuestro taller de Gandia, integración de electrodomésticos y montaje in situ. Para proyectos urgentes, consulta disponibilidad.' } },
+    { '@type': 'Question', 'name': '¿Hacéis cocinas en toda la Marina Alta?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Sí. Servimos Gandia, Oliva, Dénia, Xàbia, Pego y toda la comarca de la Marina Alta. También cubrimos Valencia ciudad y área metropolitana. El desplazamiento para visita técnica y montaje está incluido en el presupuesto.' } },
+    { '@type': 'Question', 'name': '¿Puedo ver ejemplos de cocinas que habéis hecho?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Por supuesto. En nuestra sección de Portfolio puedes ver proyectos reales de cocinas integrales fabricadas en nuestro taller. También ofrecemos visita al taller en Gandia para ver trabajos en curso y muestras de materiales.' } },
+  ],
+};
 ---
 
 <Layout
   title="Cocinas a Medida"
   description="Cocinas integrales de lujo diseñadas y fabricadas artesanalmente en Gandia. Optimización de espacio, materiales nobles y acabados impecables. Presupuesto sin compromiso."
-  canonicalURL="https://vetamans.com/servicios/cocinas"
+  canonicalURL="https://www.vetamans.com/servicios/cocinas"
+  pageType="FAQPage"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Servicios', url: '/servicios' }, { name: 'Cocinas a Medida', url: '/servicios/cocinas' }]}
 >
   <Nav currentPage="/servicios" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -67,4 +81,5 @@ import Footer from '../../components/Footer.astro';
     </section>
   </main>
   <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 </Layout>

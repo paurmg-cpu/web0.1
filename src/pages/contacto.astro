@@ -7,7 +7,8 @@ import Footer from '../components/Footer.astro';
 <Layout
   title="Contacto y Presupuestos"
   description="Solicita tu presupuesto sin compromiso. Cuéntanos tu proyecto de carpintería a medida, cocina, restauración o mueble personalizado. Taller en Gandia, Valencia. Servimos toda la Marina Alta."
-  canonicalURL="https://vetamans.com/contacto"
+  canonicalURL="https://www.vetamans.com/contacto"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Contacto', url: '/contacto' }]}
 >
   <Nav currentPage="/contacto" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -41,6 +42,40 @@ import Footer from '../components/Footer.astro';
             <div>
               <h3 class="font-bold text-vetamans-nogal">Email</h3>
               <a href="mailto:info@vetamans.com" class="text-vetamans-carbon font-light hover:text-vetamans-roble transition-colors">info@vetamans.com</a>
+            </div>
+          </div>
+
+          <!-- Calculadora de Presupuesto -->
+          <div class="mt-12 p-6 bg-white rounded-sm border border-vetamans-roble/20 shadow-sm">
+            <h3 class="font-serif text-lg text-vetamans-nogal mb-4">Calculadora Orientativa</h3>
+            <div class="space-y-4">
+              <div>
+                <label class="text-xs font-semibold uppercase tracking-wider text-vetamans-carbon block mb-1">Servicio</label>
+                <select id="calc-servicio" class="w-full p-2 border border-vetamans-roble/30 rounded-sm text-sm bg-vetamans-lino">
+                  <option value="cocinas">Cocina Integral</option>
+                  <option value="vestidores">Vestidor / Armario</option>
+                  <option value="exteriores">Pérgola / Exterior</option>
+                  <option value="restauracion">Restauración</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-xs font-semibold uppercase tracking-wider text-vetamans-carbon block mb-1">Metros cuadrados aprox.</label>
+                <input type="range" id="calc-m2" min="3" max="40" value="10" class="w-full accent-vetamans-nogal" oninput="document.getElementById('calc-m2-val').textContent=this.value+' m²';calcular()">
+                <span id="calc-m2-val" class="text-sm text-vetamans-carbon">10 m²</span>
+              </div>
+              <div>
+                <label class="text-xs font-semibold uppercase tracking-wider text-vetamans-carbon block mb-1">Calidad de materiales</label>
+                <select id="calc-calidad" class="w-full p-2 border border-vetamans-roble/30 rounded-sm text-sm bg-vetamans-lino" onchange="calcular()">
+                  <option value="media">Media (laminados, melamina)</option>
+                  <option value="alta" selected>Alta (maderas nobles, barniz)</option>
+                  <option value="premium">Premium (maderas exóticas, lacado)</option>
+                </select>
+              </div>
+              <div class="bg-vetamans-nogal text-vetamans-lino p-4 rounded-sm text-center">
+                <span class="text-xs uppercase tracking-widest block mb-1">Estimación desde</span>
+                <span id="calc-result" class="text-2xl font-serif font-bold">8.000€</span>
+                <span class="text-xs block mt-1 opacity-70">Presupuesto exacto tras visita técnica</span>
+              </div>
             </div>
           </div>
         </div>
@@ -180,4 +215,17 @@ import Footer from '../components/Footer.astro';
       setTimeout(() => feedback.classList.add('hidden'), 6000);
     }
   }
+
+  function calcular() {
+    const servicio = document.getElementById('calc-servicio')?.value || 'cocinas';
+    const m2 = parseInt(document.getElementById('calc-m2')?.value || '10');
+    const calidad = document.getElementById('calc-calidad')?.value || 'alta';
+    const precios = { cocinas: 800, vestidores: 600, exteriores: 500, restauracion: 400 };
+    const multiplicador = { media: 1, alta: 1.5, premium: 2.5 };
+    const base = precios[servicio] || 600;
+    const total = Math.round(base * m2 * multiplicador[calidad]);
+    const resultEl = document.getElementById('calc-result');
+    if (resultEl) resultEl.textContent = total.toLocaleString('es-ES') + '€';
+  }
+  calcular();
 </script>

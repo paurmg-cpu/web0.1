@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  'headline': 'Las mejores maderas para cocinas: guía completa 2025',
+  'description': 'Descubre qué tipos de madera son ideales para cocinas. Roble, nogal, cerezo, fresno... Analizamos durabilidad, resistencia a la humedad y estética para tu cocina a medida.',
+  'author': { '@type': 'Person', 'name': 'Vetamans' },
+  'publisher': { '@type': 'Organization', 'name': 'Vetamans', 'logo': { '@type': 'ImageObject', 'url': 'https://www.vetamans.com/og-image.jpg' } },
+  'datePublished': '2025-03-15',
+  'dateModified': '2025-03-15',
+  'mainEntityOfPage': { '@type': 'WebPage', '@id': 'https://www.vetamans.com/blog/tipos-madera-cocinas' },
+};
+---
+
+<Layout
+  title="Las mejores maderas para cocinas"
+  description="Descubre qué tipos de madera son ideales para cocinas. Roble, nogal, cerezo, fresno... Analizamos durabilidad, resistencia a la humedad y estética para tu cocina a medida."
+  canonicalURL="https://www.vetamans.com/blog/tipos-madera-cocinas"
+  pageType="Article"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Maderas para cocinas', url: '/blog/tipos-madera-cocinas' }]}
+>
+  <Nav />
+  <main class="pt-24 px-8 max-w-3xl mx-auto">
+    <article class="py-16">
+      <div class="mb-8">
+        <span class="text-xs uppercase tracking-widest font-semibold text-vetamans-roble">Materiales</span>
+        <h1 class="text-4xl md:text-5xl font-serif text-vetamans-nogal mt-3 mb-4 leading-tight">Las mejores maderas para cocinas: guía completa 2025</h1>
+        <p class="text-vetamans-carbon font-light text-lg leading-relaxed">Elegir la madera adecuada para tu cocina es la decisión más importante del proyecto. En esta guía analizamos las cinco mejores especies, su comportamiento frente a la humedad, el calor y el uso diario, para que aciertes desde el primer día.</p>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-vetamans-carbon font-light leading-relaxed space-y-6">
+        <h2>¿Por qué elegir madera para tu cocina?</h2>
+        <p>La madera aporta calidez, personalidad y una conexión con la naturaleza que ningún material sintético puede igualar. Una cocina de madera bien ejecutada dura décadas —hemos restaurado cocinas de los años 50 que siguen impecables— y admite renovaciones de acabado sin cambiar los muebles. Además, la madera es un excelente aislante térmico y acústico, lo que se nota en el confort diario. Frente al laminado o el MDF, la madera maciza envejece con dignidad: las pequeñas marcas de uso se convierten en pátina, no en desperfectos.</p>
+
+        <h2>Las 5 mejores maderas para cocinas</h2>
+        <p>Tras años fabricando cocinas en Gandia y la comarca de la Safor, estas son las especies que recomendamos con más frecuencia. Las hemos ordenado por su equilibrio entre durabilidad, estética y comportamiento en clima mediterráneo.</p>
+
+        <h3>1. Roble americano</h3>
+        <p>El rey indiscutible de las cocinas de madera. Su dureza (1.360 en la escala Janka) lo hace muy resistente a golpes y arañazos. Tiene un veteado marcado y elegante, y acepta cualquier tipo de tintado: desde el natural claro hasta tonos ahumados oscuros. Su comportamiento ante la humedad es excelente gracias a su grano cerrado, y con un buen barniz al agua no tendrás problemas de dilataciones. Es la opción número uno si buscas una cocina para toda la vida.</p>
+
+        <h3>2. Nogal europeo</h3>
+        <p>El nogal es sinónimo de lujo discreto. Su color marrón chocolate, a veces con vetas violáceas, da a la cocina una presencia imponente. Con dureza 1.010 Janka, es razonablemente resistente aunque algo más blando que el roble. Su principal ventaja es la estabilidad dimensional: apenas se mueve con los cambios de humedad, algo crítico en cocinas. El precio del nogal es más elevado —aproximadamente un 30-40% más que el roble— pero el resultado visual lo compensa con creces.</p>
+
+        <h3>3. Cerezo americano</h3>
+        <p>Si buscas una cocina cálida y luminosa, el cerezo es tu madera. Su color rojizo dorado se intensifica con el paso del tiempo por oxidación natural, volviéndose más profundo y rico. Dureza 950 Janka. Es fácil de mecanizar, lo que permite detalles de molduras y perfiles que en maderas más duras serían costosos. Requiere algo más de cuidado con los líquidos, pero con un mantenimiento sencillo (aceite natural una vez al año) se conserva perfecto.</p>
+
+        <h3>4. Fresno europeo</h3>
+        <p>El fresno es la alternativa clara al roble. Su tono crema pálido ilumina cocinas pequeñas o con poca luz natural. Con dureza 1.320 Janka, compite directamente con el roble en resistencia. Su veteado es más recto y sutil, ideal para cocinas de estilo contemporáneo o nórdico. Es una madera flexible que absorbe bien los acabados y tiene una excelente relación calidad-precio.</p>
+
+        <h3>5. Haya europea</h3>
+        <p>La haya es la opción más económica sin renunciar a la calidad. Dureza 1.300 Janka, tono rosado pálido uniforme y grano muy fino. Es la madera tradicional de las cocinas centroeuropeas por su disponibilidad y facilidad de trabajo. Su punto débil: es más sensible a la humedad que las anteriores, por lo que recomendamos un barnizado de poliuretano de alta resistencia en zonas cercanas al fregadero. Ideal si tu presupuesto es ajustado pero no quieres renunciar a la madera maciza.</p>
+
+        <h2>Factores clave al elegir madera para cocina</h2>
+        <p>Más allá del nombre de la especie, hay cuatro factores que determinan si una madera funcionará bien en tu cocina:</p>
+
+        <h3>Resistencia a la humedad</h3>
+        <p>Una cocina no es un baño, pero tiene zonas húmedas: fregadero, lavavajillas, vapor de la cocción. Las maderas de grano cerrado (roble, nogal) resisten mejor. Las de grano abierto (fresno) necesitan un sellado más cuidadoso. En todas recomendamos barniz al agua de poro abierto, que permite transpirar a la madera sin dejar penetrar la humedad.</p>
+
+        <h3>Dureza superficial</h3>
+        <p>Los frentes de armarios y la encimera reciben impactos diarios. Una dureza superior a 900 Janka es lo recomendable para uso doméstico normal. Si hay niños, mejor superar los 1.100 Janka sin dudarlo. Las maderas más blandas como el pino o el abedul no son recomendables para cocinas de uso intensivo.</p>
+
+        <h3>Mantenimiento</h3>
+        <p>Una cocina de madera no requiere más cuidados que una de laminado, siempre que el acabado inicial sea correcto. La diferencia está en que la madera se puede reparar: un arañazo en laminado es permanente; en madera maciza se lija y se barniza de nuevo. Recomendamos una revisión de acabados cada 5-7 años, que cuesta unos 200-400€ según tamaño.</p>
+
+        <h3>Presupuesto</h3>
+        <p>Ordenados de mayor a menor precio por metro cuadrado de frente de armario: nogal (~280-350€/m²), cerezo (~220-280€/m²), roble (~200-250€/m²), fresno (~160-200€/m²) y haya (~130-170€/m²). Son precios orientativos para madera maciza en taller; el diseño y los herrajes suman aparte.</p>
+
+        <h2>¿Madera maciza o contrachapado? Ventajas de cada uno</h2>
+        <p>El contrachapado de abedul o de okume con chapa de madera noble (roble, nogal) es una alternativa que utilizamos mucho. Sus ventajas: mayor estabilidad dimensional, menor coste (20-30% menos que macizo) y posibilidad de puertas de gran formato sin riesgo de alabeo. La principal ventaja de la madera maciza es la posibilidad de restaurar y lijar indefinidamente. Nuestra recomendación: maciza para frentes, tiradores y elementos visibles; contrachapado de alta calidad para los interiores de los armarios. Así optimizas presupuesto sin sacrificar estética ni durabilidad.</p>
+
+        <h2>Conclusión: nuestra recomendación para cocinas en el Mediterráneo</h2>
+        <p>Después de más de veinticinco años instalando cocinas entre Gandia, Oliva, Dénia y toda la Marina Alta, nuestra combinación favorita es roble americano tintado en tono medio, con barniz al agua satinado y encimera de nogal. Es duradera, elegante y soporta los veranos húmedos sin moverse. Si tu presupuesto es más holgado, el nogal macizo es insuperable en presencia. Y si buscas luminosidad, el fresno te dará una cocina que parece flotar. Lo importante es que la decisión la tomes con información real: ven a vernos al taller y toca las muestras. La madera se elige con las manos, no solo con los ojos.</p>
+      </div>
+
+      <div class="mt-16 p-8 bg-vetamans-nogal text-vetamans-lino rounded-sm text-center">
+        <h2 class="text-2xl font-serif mb-4">¿Necesitas ayuda con tu proyecto?</h2>
+        <p class="font-light mb-6">Consúltanos sin compromiso. Te asesoramos sobre materiales, diseño y presupuesto.</p>
+        <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-nogal px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-roble transition-all">Solicitar Asesoramiento</a>
+      </div>
+    </article>
+  </main>
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+</Layout>

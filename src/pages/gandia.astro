@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Carpintería de Lujo en Gandia"
+  description="Carpintería artesanal y ebanistería de lujo en Gandia. Especialistas en cocinas a medida, muebles personalizados y restauración de muebles antiguos. Presupuesto sin compromiso. Taller en el centro de Gandia."
+  canonicalURL="https://www.vetamans.com/gandia"
+  pageType="LocalBusiness"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Carpintería en Gandia', url: '/gandia' }]}
+>
+  <Nav />
+  <main class="pt-24">
+    <!-- Hero Local -->
+    <section class="relative py-24 bg-vetamans-nogal overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[url('/hero-wood.jpg')] bg-cover bg-center"></div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center px-8">
+        <span class="text-vetamans-roble text-sm uppercase tracking-[.3em] font-semibold">Gandia · Valencia</span>
+        <h1 class="text-4xl md:text-6xl font-serif text-vetamans-lino mt-4 mb-6 leading-tight">
+          Carpintería de Lujo <br/><span class="italic">en Gandia</span>
+        </h1>
+        <p class="text-lg text-vetamans-lino/70 font-light max-w-2xl mx-auto mb-10">
+          Somos el taller de ebanistería artesanal de referencia en Gandia. Diseñamos, fabricamos e instalamos cocinas, vestidores y mobiliario a medida con maderas nobles y acabados impecables. Servimos Gandia, la Safor, Oliva y toda la comarca.
+        </p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center">
+          <a href="/contacto" class="bg-vetamans-lino text-vetamans-nogal px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-roble transition-all">
+            Solicitar Presupuesto en Gandia
+          </a>
+          <a href="/portfolio" class="border border-vetamans-lino/30 text-vetamans-lino px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-lino/10 transition-all">
+            Ver Proyectos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ¿Por qué Vetamans en Gandia? -->
+    <section class="py-24 px-8 max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-serif text-vetamans-nogal mb-4">¿Por qué elegir Vetamans en Gandia?</h2>
+        <div class="w-20 h-1 bg-vetamans-roble mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="flex gap-4">
+          <div class="text-3xl text-vetamans-roble shrink-0">01</div>
+          <div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2">Taller en Gandia</h3>
+            <p class="text-vetamans-carbon font-light leading-relaxed">Trabajamos en nuestro taller del centro de Gandia. Puedes visitarnos para ver proyectos en curso, tocar muestras de madera y hablar directamente con nuestros maestros ebanistas. Sin intermediarios, sin subcontratas.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="text-3xl text-vetamans-roble shrink-0">02</div>
+          <div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2">Cobertura Local Completa</h3>
+            <p class="text-vetamans-carbon font-light leading-relaxed">Servimos Gandia ciudad, Grau de Gandia, Benipeixcar, Benirredrà, Almoines, Real de Gandia, Daimús, Guardamar, Miramar, Piles, Oliva y toda la comarca de La Safor. Visita técnica y montaje incluidos.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="text-3xl text-vetamans-roble shrink-0">03</div>
+          <div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2">Conocimiento del Terreno</h3>
+            <p class="text-vetamans-carbon font-light leading-relaxed">Conocemos las viviendas de la zona: pisos del centro, chalets de la playa, casas rurales de la huerta. Adaptamos cada proyecto a la arquitectura local y al clima mediterráneo.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="text-3xl text-vetamans-roble shrink-0">04</div>
+          <div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2">Presupuesto sin Compromiso</h3>
+            <p class="text-vetamans-carbon font-light leading-relaxed">Visita técnica gratuita en Gandia y alrededores. Medimos, asesoramos y presupuestamos sin coste ni compromiso. Respuesta en 48 horas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Servicios en Gandia -->
+    <section class="py-20 bg-vetamans-lino/50 px-8">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-serif text-vetamans-nogal text-center mb-12">Nuestros Servicios en Gandia</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <a href="/servicios/cocinas" class="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow group">
+            <div class="text-4xl mb-4">🍳</div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2 group-hover:text-vetamans-roble transition-colors">Cocinas a Medida</h3>
+            <p class="text-vetamans-carbon font-light text-sm">Cocinas integrales diseñadas para tu hogar en Gandia. Optimización de espacio, materiales resistentes al clima mediterráneo y acabados de lujo.</p>
+          </a>
+          <a href="/servicios/medida" class="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow group">
+            <div class="text-4xl mb-4">🪑</div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2 group-hover:text-vetamans-roble transition-colors">Muebles a Medida</h3>
+            <p class="text-vetamans-carbon font-light text-sm">Vestidores, armarios, librerías y mobiliario personalizado. Fabricación artesanal en nuestro taller de Gandia con maderas nobles.</p>
+          </a>
+          <a href="/servicios/restauracion" class="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-shadow group">
+            <div class="text-4xl mb-4">🪵</div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2 group-hover:text-vetamans-roble transition-colors">Restauración</h3>
+            <p class="text-vetamans-carbon font-light text-sm">Restauración profesional de muebles antiguos en Gandia. Devolvemos la vida a tus piezas con técnicas tradicionales de ebanistería.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-8 text-center bg-vetamans-nogal">
+      <h2 class="text-3xl font-serif text-vetamans-lino mb-4">¿Tienes un proyecto en Gandia?</h2>
+      <p class="text-vetamans-lino/70 font-light mb-8 max-w-xl mx-auto">Hablemos. Visita técnica gratuita, presupuesto en 48h y atención personalizada en tu zona.</p>
+      <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-nogal px-10 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-roble transition-all">Solicitar Presupuesto</a>
+    </section>
+  </main>
+  <Footer />
+</Layout>

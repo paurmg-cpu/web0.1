@@ -2,12 +2,26 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': [
+    { '@type': 'Question', 'name': '¿Qué tipos de muebles a medida fabricáis?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Fabricamos todo tipo de mobiliario personalizado: vestidores, armarios empotrados, librerías, mesas de comedor, muebles de salón, cabeceros, zapateros y cualquier pieza que necesites. No hay catálogo: cada mueble se diseña específicamente para tu espacio y necesidades.' } },
+    { '@type': 'Question', 'name': '¿Cuánto cuesta un mueble a medida?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'El precio varía según dimensiones, tipo de madera y complejidad del diseño. Un vestidor a medida puede partir de 2.500€, una librería desde 1.200€. Ofrecemos presupuesto detallado sin compromiso tras estudiar tu espacio y preferencias.' } },
+    { '@type': 'Question', 'name': '¿Qué maderas utilizáis para muebles personalizados?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Trabajamos con roble, nogal, cerezo, fresno, haya y pino macizo, entre otras. Seleccionamos cada tabla por su veta, color y propiedades mecánicas. También ofrecemos acabados lacados, tintados y barnizados según tus preferencias estéticas.' } },
+    { '@type': 'Question', 'name': '¿Cuánto se tarda en fabricar un mueble a medida?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'El plazo habitual es de 3 a 6 semanas desde la aprobación del diseño, dependiendo de la complejidad. Incluye diseño 3D, selección de materiales, fabricación en nuestro taller de Gandia y montaje final en tu domicilio.' } },
+    { '@type': 'Question', 'name': '¿Hacéis envíos fuera de Valencia?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Principalmente servimos en Gandia, Valencia y la Marina Alta. Para proyectos en otras provincias, consúltanos. El montaje in situ está incluido en la zona de cobertura. Para piezas pequeñas, podemos coordinar envíos nacionales.' } },
+  ],
+};
 ---
 
 <Layout
   title="Muebles a Medida"
   description="Mobiliario personalizado: vestidores, librerías, mesas y muebles de salón diseñados a medida en nuestro taller de Gandia. Piezas únicas con maderas nobles y ensambles tradicionales."
-  canonicalURL="https://vetamans.com/servicios/medida"
+  canonicalURL="https://www.vetamans.com/servicios/medida"
+  pageType="FAQPage"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Servicios', url: '/servicios' }, { name: 'Muebles a Medida', url: '/servicios/medida' }]}
 >
   <Nav currentPage="/servicios" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -64,4 +78,5 @@ import Footer from '../../components/Footer.astro';
     </section>
   </main>
   <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 </Layout>

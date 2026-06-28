@@ -2,12 +2,26 @@
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': [
+    { '@type': 'Question', 'name': '¿Qué diferencia hay entre restaurar y reformar un mueble?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Restaurar es devolver al mueble su estado original respetando materiales, técnicas y pátina histórica. Reformar implica modificar el diseño o función original. En Vetamans hacemos restauración de alta gama: conservamos la esencia de cada pieza usando técnicas tradicionales de ebanistería.' } },
+    { '@type': 'Question', 'name': '¿Cuánto cuesta restaurar un mueble antiguo?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Depende del estado, tamaño y complejidad. Una restauración básica (limpieza, lijado y barnizado) parte de 300€. Restauraciones completas con sustitución de piezas pueden oscilar entre 800€ y 3.000€. Hacemos una valoración gratuita de tu mueble antes de presupuestar.' } },
+    { '@type': 'Question', 'name': '¿Qué tipo de muebles restauráis?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Restauramos todo tipo de mobiliario: mesas, sillas, armarios, cómodas, bargueños, mecedoras, marcos, puertas y cualquier pieza de madera con valor histórico o sentimental. Trabajamos tanto muebles rústicos como de estilo clásico, modernista o art déco.' } },
+    { '@type': 'Question', 'name': '¿Cuánto tarda una restauración profesional?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'El plazo varía según el trabajo necesario. Una restauración sencilla puede estar lista en 1-2 semanas. Restauraciones integrales con sustitución de piezas, decapado completo y barnizado a mano pueden llevar de 3 a 8 semanas. Siempre informamos del plazo estimado en el presupuesto.' } },
+    { '@type': 'Question', 'name': '¿Merece la pena restaurar un mueble viejo o es mejor comprar uno nuevo?', 'acceptedAnswer': { '@type': 'Answer', 'text': 'Un mueble antiguo de madera maciza tiene una calidad de materiales y construcción que raramente se encuentra en muebles modernos. Restaurarlo no solo preserva su valor histórico y sentimental, sino que obtienes una pieza única que durará generaciones. Además, es una inversión más sostenible que comprar mueble nuevo.' } },
+  ],
+};
 ---
 
 <Layout
   title="Restauración de Muebles"
   description="Restauración profesional de muebles antiguos en Gandia. Técnicas tradicionales de decapado, barnizado y sustitución de piezas. Devolvemos la gloria a tus muebles con valor histórico."
-  canonicalURL="https://vetamans.com/servicios/restauracion"
+  canonicalURL="https://www.vetamans.com/servicios/restauracion"
+  pageType="FAQPage"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Servicios', url: '/servicios' }, { name: 'Restauración de Muebles', url: '/servicios/restauracion' }]}
 >
   <Nav currentPage="/servicios" />
   <main class="pt-24 px-8 max-w-7xl mx-auto">
@@ -55,4 +69,5 @@ import Footer from '../../components/Footer.astro';
     </section>
   </main>
   <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 </Layout>

@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Ebanistería Artesanal en la Marina Alta"
+  description="Ebanistería de lujo en la Marina Alta: Gandia, Dénia, Xàbia, Oliva, Pego. Cocinas a medida, muebles personalizados y restauración de muebles antiguos con maderas nobles. Presupuesto sin compromiso."
+  canonicalURL="https://www.vetamans.com/marina-alta"
+  pageType="LocalBusiness"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Ebanistería en la Marina Alta', url: '/marina-alta' }]}
+>
+  <Nav />
+  <main class="pt-24">
+    <section class="relative py-24 bg-vetamans-bosque overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[url('/hero-wood.jpg')] bg-cover bg-center"></div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center px-8">
+        <span class="text-vetamans-roble text-sm uppercase tracking-[.3em] font-semibold">Gandia · Dénia · Xàbia · Oliva · Pego</span>
+        <h1 class="text-4xl md:text-6xl font-serif text-vetamans-lino mt-4 mb-6 leading-tight">
+          Ebanistería Artesanal <br/><span class="italic">en la Marina Alta</span>
+        </h1>
+        <p class="text-lg text-vetamans-lino/70 font-light max-w-2xl mx-auto mb-10">
+          Desde nuestro taller en Gandia servimos a toda la Marina Alta. Diseñamos y fabricamos mobiliario de lujo para chalets, apartamentos y viviendas desde Dénia hasta Oliva, desde Xàbia hasta Pego.
+        </p>
+        <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-bosque px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-roble transition-all">
+          Solicitar Presupuesto
+        </a>
+      </div>
+    </section>
+
+    <section class="py-24 px-8 max-w-6xl mx-auto">
+      <h2 class="text-3xl font-serif text-vetamans-nogal text-center mb-12">Cobertura en la Marina Alta</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center mb-16">
+        {['Gandia', 'Dénia', 'Xàbia', 'Oliva', 'Pego', 'Calp', 'Altea', 'Benissa', 'Teulada', 'El Verger', 'Ondara', 'Pedreguer'].map(loc => (
+          <div class="bg-white p-4 rounded-sm shadow-sm text-sm text-vetamans-carbon font-light">{loc}</div>
+        ))}
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-sm shadow-sm text-center">
+          <div class="text-4xl mb-4">🏠</div>
+          <h3 class="text-lg font-serif text-vetamans-nogal mb-2">Chalets y Villas</h3>
+          <p class="text-vetamans-carbon font-light text-sm">Cocinas amplias, vestidores de lujo, pérgolas de madera. Mobiliario que realza la arquitectura mediterránea de tu propiedad en la Marina Alta.</p>
+        </div>
+        <div class="bg-white p-8 rounded-sm shadow-sm text-center">
+          <div class="text-4xl mb-4">🏖️</div>
+          <h3 class="text-lg font-serif text-vetamans-nogal mb-2">Apartamentos de Playa</h3>
+          <p class="text-vetamans-carbon font-light text-sm">Muebles a medida que optimizan el espacio. Soluciones inteligentes para segundas residencias en Dénia, Xàbia, Oliva y toda la costa.</p>
+        </div>
+        <div class="bg-white p-8 rounded-sm shadow-sm text-center">
+          <div class="text-4xl mb-4">🏡</div>
+          <h3 class="text-lg font-serif text-vetamans-nogal mb-2">Casas Rurales</h3>
+          <p class="text-vetamans-carbon font-light text-sm">Restauración de muebles rústicos tradicionales de la Marina Alta. Conservamos la esencia de las masías y casas de campo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-vetamans-bosque text-center px-8">
+      <h2 class="text-3xl font-serif text-vetamans-lino mb-4">¿Proyecto en la Marina Alta?</h2>
+      <p class="text-vetamans-lino/70 font-light mb-8 max-w-xl mx-auto">Desde Gandia cubrimos toda la comarca. Visita técnica y presupuesto sin compromiso.</p>
+      <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-bosque px-10 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-roble transition-all">Contactar Ahora</a>
+    </section>
+  </main>
+  <Footer />
+</Layout>

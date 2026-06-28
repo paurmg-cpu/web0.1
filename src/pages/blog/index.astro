@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const articles = [
+  { slug: 'tipos-madera-cocinas', titulo: 'Las mejores maderas para cocinas: guía completa 2025', descripcion: 'Descubre qué tipos de madera son ideales para cocinas. Roble, nogal, cerezo, fresno... Analizamos durabilidad, resistencia a la humedad y estética.', fecha: '2025-03-15', categoria: 'Materiales', keywords: 'mejores maderas para cocina, madera cocina durabilidad, que madera usar en cocina' },
+  { slug: 'mueble-a-medida-guia', titulo: 'Cómo encargar un mueble a medida: guía paso a paso', descripcion: 'Todo lo que necesitas saber antes de encargar un mueble personalizado. Desde la idea inicial hasta el montaje final: materiales, plazos, precios y consejos de un maestro ebanista.', fecha: '2025-04-02', categoria: 'Guías', keywords: 'como encargar mueble a medida, mueble personalizado precio, cuanto tarda mueble a medida' },
+  { slug: 'restauracion-o-comprar', titulo: '¿Restaurar o comprar nuevo? La guía definitiva para decidir', descripcion: 'Analizamos cuándo merece la pena restaurar un mueble antiguo y cuándo es mejor comprar uno nuevo. Factores como el valor sentimental, la calidad de la madera y el coste.', fecha: '2025-04-20', categoria: 'Consejos', keywords: 'restaurar o comprar mueble, merece la pena restaurar mueble antiguo, restauracion muebles precio' },
+];
+---
+
+<Layout
+  title="Blog"
+  description="Blog de ebanistería y carpintería artesanal. Artículos sobre maderas, diseño de muebles a medida, restauración, tendencias y consejos de nuestros maestros ebanistas en Gandia."
+  canonicalURL="https://www.vetamans.com/blog"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Blog', url: '/blog' }]}
+>
+  <Nav />
+  <main class="pt-24 px-8 max-w-4xl mx-auto">
+    <section class="py-20">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-serif text-vetamans-nogal mb-4">Blog de Ebanistería</h1>
+        <p class="text-vetamans-carbon font-light max-w-xl mx-auto">Artículos sobre madera, diseño, restauración y el arte de la carpintería artesanal. Escrito desde nuestro taller en Gandia.</p>
+      </div>
+
+      <div class="space-y-8">
+        {articles.map(a => (
+          <a href={`/blog/${a.slug}`} class="block bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-all group border border-vetamans-roble/10">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-xs uppercase tracking-widest font-semibold text-vetamans-roble bg-vetamans-roble/10 px-3 py-1 rounded-full">{a.categoria}</span>
+              <span class="text-xs text-vetamans-carbon/40">{a.fecha}</span>
+            </div>
+            <h2 class="text-xl md:text-2xl font-serif text-vetamans-nogal mb-3 group-hover:text-vetamans-roble transition-colors">{a.titulo}</h2>
+            <p class="text-vetamans-carbon font-light leading-relaxed">{a.descripcion}</p>
+            <span class="inline-block mt-4 text-sm font-bold uppercase tracking-tighter text-vetamans-roble">Leer artículo &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

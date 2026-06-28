@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const { slug } = Astro.params;
+
+let proyecto: any = null;
+try {
+  const res = await fetch('https://api.vetamans.com/api/proyectos');
+  if (res.ok) {
+    const proyectos = await res.json();
+    proyecto = proyectos.find((p: any) => p.id === slug);
+  }
+} catch (e) {}
+
+const projectSchema = proyecto ? {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  'name': proyecto.titulo,
+  'description': proyecto.descripcion,
+  'image': proyecto.imagenes || [],
+  'manufacturer': { '@type': 'Organization', 'name': 'Vetamans' },
+  'category': proyecto.categoria,
+  'offers': { '@type': 'Offer', 'availability': 'https://schema.org/InStock', 'priceSpecification': { '@type': 'PriceSpecification', 'priceCurrency': 'EUR' } },
+} : null;
+---
+
+<Layout
+  title={proyecto ? proyecto.titulo : 'Proyecto'}
+  description={proyecto ? proyecto.descripcion?.substring(0, 155) : 'Proyecto de ebanistería artesanal Vetamans'}
+  canonicalURL={`https://www.vetamans.com/proyectos/${slug}`}
+  pageType="Product"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Portfolio', url: '/portfolio' }, { name: proyecto?.titulo || 'Proyecto', url: `/proyectos/${slug}` }]}
+>
+  <Nav />
+  <main class="pt-24 px-8 max-w-6xl mx-auto">
+    {!proyecto ? (
+      <section class="py-20 text-center">
+        <h1 class="text-4xl font-serif text-vetamans-nogal mb-4">Proyecto no encontrado</h1>
+        <a href="/portfolio" class="text-vetamans-roble hover:text-vetamans-nogal">← Volver al portfolio</a>
+      </section>
+    ) : (
+      <section class="py-16">
+        <a href="/portfolio" class="text-sm text-vetamans-roble hover:text-vetamans-nogal mb-8 inline-block">← Volver al portfolio</a>
+        <h1 class="text-4xl md:text-5xl font-serif text-vetamans-nogal mb-4">{proyecto.titulo}</h1>
+        <div class="flex gap-4 mb-8 text-sm">
+          <span class="bg-vetamans-roble/10 text-vetamans-roble px-3 py-1 rounded-full uppercase tracking-wider text-xs font-semibold">{proyecto.categoria}</span>
+          {proyecto.cliente && <span class="text-vetamans-carbon/60">Cliente: {proyecto.cliente}</span>}
+          {proyecto.ubicacion && <span class="text-vetamans-carbon/60">📍 {proyecto.ubicacion}</span>}
+          <span class="text-vetamans-carbon/60">📅 {proyecto.fecha}</span>
+        </div>
+
+        {proyecto.imagenes?.length > 0 && (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+            {proyecto.imagenes.map((img: string) => (
+              <div class="aspect-[4/3] bg-vetamans-roble/10 rounded-sm overflow-hidden">
+                <img src={img} alt={`${proyecto.titulo} - Vetamans`} loading="lazy" class="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div class="prose prose-lg max-w-3xl text-vetamans-carbon font-light leading-relaxed">
+          <p>{proyecto.descripcion}</p>
+        </div>
+
+        <div class="mt-16 p-8 bg-vetamans-nogal text-vetamans-lino rounded-sm text-center">
+          <h2 class="text-2xl font-serif mb-4">¿Te gusta este proyecto?</h2>
+          <p class="font-light mb-6">Podemos crear algo similar para ti. Cuéntanos tu idea.</p>
+          <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-nogal px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-roble transition-all">Solicitar Presupuesto</a>
+        </div>
+      </section>
+    )}
+  </main>
+  <Footer />
+  {projectSchema && <script type="application/ld+json" set:html={JSON.stringify(projectSchema)}></script>}
+</Layout>

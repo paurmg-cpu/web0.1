@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  'headline': 'Cómo encargar un mueble a medida: guía paso a paso',
+  'description': 'Todo lo que necesitas saber antes de encargar un mueble personalizado. Desde la idea inicial hasta el montaje final: materiales, plazos, precios y consejos de un maestro ebanista.',
+  'author': { '@type': 'Person', 'name': 'Vetamans' },
+  'publisher': { '@type': 'Organization', 'name': 'Vetamans', 'logo': { '@type': 'ImageObject', 'url': 'https://www.vetamans.com/og-image.jpg' } },
+  'datePublished': '2025-04-02',
+  'dateModified': '2025-04-02',
+  'mainEntityOfPage': { '@type': 'WebPage', '@id': 'https://www.vetamans.com/blog/mueble-a-medida-guia' },
+};
+---
+
+<Layout
+  title="Cómo encargar un mueble a medida"
+  description="Todo lo que necesitas saber antes de encargar un mueble personalizado. Desde la idea inicial hasta el montaje final: materiales, plazos, precios y consejos de un maestro ebanista."
+  canonicalURL="https://www.vetamans.com/blog/mueble-a-medida-guia"
+  pageType="Article"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Blog', url: '/blog' }, { name: 'Mueble a medida', url: '/blog/mueble-a-medida-guia' }]}
+>
+  <Nav />
+  <main class="pt-24 px-8 max-w-3xl mx-auto">
+    <article class="py-16">
+      <div class="mb-8">
+        <span class="text-xs uppercase tracking-widest font-semibold text-vetamans-roble">Guías</span>
+        <h1 class="text-4xl md:text-5xl font-serif text-vetamans-nogal mt-3 mb-4 leading-tight">Cómo encargar un mueble a medida: guía paso a paso</h1>
+        <p class="text-vetamans-carbon font-light text-lg leading-relaxed">Encargar un mueble a medida puede parecer un proceso abrumador si nunca lo has hecho. Te contamos exactamente cómo trabajamos en Vetamans, qué esperar en cada fase y cómo prepararte para que el resultado sea exactamente lo que imaginas.</p>
+      </div>
+
+      <div class="prose prose-lg max-w-none text-vetamans-carbon font-light leading-relaxed space-y-6">
+        <h2>Paso 1: Define tu necesidad</h2>
+        <p>Antes de llamar a un ebanista, dedica un rato a pensar con claridad qué necesitas. Coge un metro y mide el espacio disponible: ancho, alto y fondo máximo. Piensa en la función principal: ¿es un armario para el dormitorio, una librería que ocupe toda la pared del salón, un mueble para el recibidor? ¿Qué quieres guardar exactamente? Cuantos más detalles concretos tengas (número de camisas colgadas, altura de los libros, cantidad de zapatos), más funcional será el diseño final. Busca inspiración: guarda fotos de estilos que te gusten, da igual que sean de Pinterest, de una revista o de casa de un amigo. No te preocupes por si combinan entre sí; el ebanista sabrá extraer la esencia y unificarla en un diseño coherente. Define también el estilo general: contemporáneo, rústico, minimalista, clásico, industrial. Y un dato clave: tu presupuesto orientativo. No hace falta que sea exacto, pero saber si hablamos de 800€ o de 8.000€ cambia completamente los materiales y soluciones que se plantean.</p>
+
+        <h2>Paso 2: Elige la madera adecuada</h2>
+        <p>La elección de la madera es el segundo gran pilar. No todas las maderas sirven para todo. El roble es versátil y durísimo, ideal para muebles de uso diario como armarios o cómodas. El nogal aporta una elegancia oscura y funciona de maravilla en muebles de salón, bibliotecas o dormitorios principales. El cerezo es cálido y envejece dorándose, perfecto para ambientes acogedores. El fresno, más claro y contemporáneo, encaja en estilos nórdicos. La haya es económica y resistente, ideal para muebles juveniles o despensas. El pino no lo recomendamos para muebles de calidad: es demasiado blando y resinero. Piensa también en el acabado: barniz satinado para máxima protección, aceite natural si prefieres que se pueda reparar fácilmente en casa, o cera si buscas un tacto sedoso y un brillo clásico. No decidas a ciegas: pide muestras y míralas en tu casa, con tu luz, junto a tus paredes y suelos. Una madera que queda preciosa en el taller puede verse completamente distinta en tu salón.</p>
+
+        <h2>Paso 3: La visita técnica y la toma de medidas</h2>
+        <p>Este es el momento en que el proyecto empieza a tomar forma real. Un ebanista se desplaza a tu domicilio —nosotros cubrimos Gandia, Valencia y toda la Safor— para tomar medidas precisas con láser y comprobar irregularidades que a simple vista no se ven: paredes fuera de escuadra, suelos con pendiente, humedades ocultas. Esas imperfecciones son normales en cualquier vivienda, pero ignorarlas es lo que diferencia un mueble que encaja como un guante de uno que deja holguras extrañas. Durante la visita aprovechamos para hablar de la instalación eléctrica si el mueble lleva iluminación integrada, de la ubicación de enchufes y de cualquier otro factor técnico. También es el momento de enseñarnos tus fotos de inspiración y de que te asesoremos in situ sobre las opciones que mejor se adaptan a tu espacio.</p>
+
+        <h2>Paso 4: Diseño 3D y presupuesto</h2>
+        <p>Con las medidas tomadas, elaboramos un diseño 3D fotorrealista que recibirás por email en un plazo de 5 a 7 días hábiles. No es un dibujo esquemático: verás tu mueble exactamente como quedará, con las vetas de la madera, los tiradores, la iluminación y la interacción con el espacio. Junto con el render, recibirás un presupuesto detallado que desglosa:</p>
+        <ul>
+          <li>Madera seleccionada (especie, origen, certificación FSC si aplica)</li>
+          <li>Dimensiones exactas y cubicaje total</li>
+          <li>Tipo de ensambles (cola de milano, espiga, galletas —cada uno tiene un coste distinto—)</li>
+          <li>Acabado elegido (barniz, aceite o cera, con número de manos)</li>
+          <li>Herrajes (bisagras Blum, correderas, tiradores)</li>
+          <li>Transporte y montaje in situ</li>
+          <li>IVA y plazo de ejecución estimado</li>
+        </ul>
+        <p>Puedes pedir modificaciones sobre este diseño: cambiar la madera, ajustar dimensiones, añadir o quitar compartimentos. Normalmente hacemos dos rondas de ajustes sin coste adicional antes de cerrar el diseño definitivo. Una vez das el visto bueno, firmamos un contrato sencillo y abonas el 40% del total para iniciar la fabricación.</p>
+
+        <h2>Paso 5: Fabricación en taller</h2>
+        <p>Aquí es donde ocurre la magia. El plazo habitual de fabricación para un mueble a medida oscila entre 3 y 6 semanas, dependiendo de la complejidad y de la carga de trabajo del taller. En Vetamans somos un taller pequeño —tres ebanistas—, lo que garantiza que quien diseñó tu mueble es quien lo fabrica, sin intermediarios. Durante este tiempo:</p>
+        <ul>
+          <li>Seleccionamos las tablas una a una, emparejando vetas y tonos para que el mueble tenga continuidad visual.</li>
+          <li>Se cortan y cepillan las piezas con precisión de décima de milímetro.</li>
+          <li>Se ejecutan los ensambles. En muebles de calidad, no hay tornillos vistos: usamos espigas de madera, colas de milano o ensambles a media madera.</li>
+          <li>Se aplica el acabado en cabina presurizada: lijado progresivo (grano 120, 180, 220), tintado si procede, y de 2 a 4 manos de barniz o aceite con secado entre capas.</li>
+        </ul>
+        <p>No te preocupes si pasan un par de semanas sin noticias: es señal de que el trabajo avanza sin incidencias. Si surge cualquier contratiempo (un nudo oculto en la madera, un retraso en los herrajes), te avisaremos de inmediato para decidir juntos la solución.</p>
+
+        <h2>Paso 6: Montaje y acabados finales</h2>
+        <p>El día del montaje, un equipo de dos personas se desplaza con el mueble protegido en mantas acolchadas. El montaje suele durar entre 2 y 6 horas según el tamaño. Se instala pieza a pieza, se nivela con cuñas ocultas si el suelo lo requiere, se fija a la pared por seguridad (obligatorio en muebles altos) y se colocan los herrajes. No nos vamos hasta que todo esté a tu gusto: ajustamos puertas, comprobamos cajones, limpiamos el polvo y repasamos cualquier microdetalle. Es el momento de pagar el 60% restante y de ver la cara que pones al encontrarte con tu mueble real por primera vez. Esa cara es la razón por la que seguimos haciendo este oficio.</p>
+
+        <h2>Preguntas frecuentes sobre muebles a medida</h2>
+
+        <h3>¿Cuánto cuesta un mueble a medida?</h3>
+        <p>Depende de las dimensiones, la madera y la complejidad. Como referencia: una librería de 2 metros de ancho por 2,5 de alto en roble macizo ronda los 2.400-3.600€. Un armario empotrado de 2 metros en haya, unos 1.800-2.800€. Un mueble de recibidor pequeño en nogal, desde 800€. Son precios finales con montaje e IVA incluido.</p>
+
+        <h3>¿Cuánto tarda un mueble a medida desde que lo encargo?</h3>
+        <p>Entre 5 y 8 semanas desde la firma del contrato hasta el montaje, dependiendo de la carga de trabajo. Si tienes prisa, consúltanos: a veces podemos ajustar plazos, pero nunca a costa de la calidad del acabado.</p>
+
+        <h3>¿Puedo ver el mueble antes de que me lo traigan a casa?</h3>
+        <p>El diseño 3D que te enviamos es extremadamente fiel al resultado final. Si aun así quieres verlo en persona, podemos concertar una visita al taller durante la fase de fabricación para que toques la madera ya trabajada. No solemos enseñar el mueble terminado porque el riesgo de daños al moverlo dos veces es alto.</p>
+
+        <h3>¿Qué mantenimiento necesitan los muebles de madera maciza?</h3>
+        <p>Muy poco. Un paño de microfibra ligeramente húmedo para el polvo, sin productos agresivos. Si tiene aceite natural, una reaplicación cada año o dos. Si está barnizado, décadas sin tocar. Lo bueno de la madera es que un rayón se repara; en un mueble de aglomerado, no.</p>
+
+        <h3>¿Hacéis envíos fuera de Valencia?</h3>
+        <p>Sí. Servimos en toda España, aunque el coste de transporte y montaje se ajusta según la distancia. Para proyectos fuera de la península, consúltanos condiciones.</p>
+      </div>
+
+      <div class="mt-16 p-8 bg-vetamans-nogal text-vetamans-lino rounded-sm text-center">
+        <h2 class="text-2xl font-serif mb-4">¿Necesitas ayuda con tu proyecto?</h2>
+        <p class="font-light mb-6">Consúltanos sin compromiso. Te asesoramos sobre materiales, diseño y presupuesto.</p>
+        <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-nogal px-8 py-3 rounded-sm font-semibold hover:bg-vetamans-roble transition-all">Solicitar Asesoramiento</a>
+      </div>
+    </article>
+  </main>
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+</Layout>

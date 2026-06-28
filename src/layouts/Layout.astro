@@ -4,14 +4,75 @@ interface Props {
   description?: string;
   canonicalURL?: string;
   image?: string;
+  pageType?: string;
+  noindex?: boolean;
+  preloadImage?: string;
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
 const {
   title,
   description = 'Vetamans: Maestría y pasión en ebanistería de lujo. Especialistas en cocinas a medida, muebles personalizados y restauración de alta gama en Gandia y Valencia.',
-  canonicalURL = 'https://vetamans.com',
+  canonicalURL = 'https://www.vetamans.com',
   image = '/og-image.jpg',
+  pageType = 'WebPage',
+  noindex = false,
+  preloadImage = '',
+  breadcrumbs = [],
 } = Astro.props;
+
+const baseUrl = 'https://www.vetamans.com';
+
+// LocalBusiness Schema
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'HomeAndConstructionBusiness',
+  'name': 'Vetamans',
+  'description': description,
+  'url': baseUrl,
+  'telephone': '+34-XXX-XXX-XXX',
+  'email': 'info@vetamans.com',
+  'image': `${baseUrl}${image}`,
+  'priceRange': '€€€',
+  'currenciesAccepted': 'EUR',
+  'paymentAccepted': 'Cash, Credit Card, Wire Transfer',
+  'address': {
+    '@type': 'PostalAddress',
+    'streetAddress': 'Calle de la Madera, 12',
+    'addressLocality': 'Gandia',
+    'addressRegion': 'Valencia',
+    'postalCode': '46701',
+    'addressCountry': 'ES',
+  },
+  'geo': {
+    '@type': 'GeoCoordinates',
+    'latitude': 38.9667,
+    'longitude': -0.1833,
+  },
+  'areaServed': [
+    { '@type': 'City', 'name': 'Gandia' },
+    { '@type': 'City', 'name': 'Valencia' },
+    { '@type': 'AdministrativeArea', 'name': 'Marina Alta' },
+    { '@type': 'AdministrativeArea', 'name': 'La Safor' },
+  ],
+  'openingHoursSpecification': [
+    { '@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'opens': '08:00', 'closes': '18:00' },
+    { '@type': 'OpeningHoursSpecification', 'dayOfWeek': 'Saturday', 'opens': '09:00', 'closes': '13:00' },
+  ],
+  'sameAs': [
+    'https://www.instagram.com/vetamans',
+    'https://www.facebook.com/vetamans',
+  ],
+  'hasOfferCatalog': {
+    '@type': 'OfferCatalog',
+    'name': 'Servicios de Carpintería',
+    'itemListElement': [
+      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Cocinas a Medida', 'description': 'Diseño y fabricación artesanal de cocinas integrales de lujo' }, 'areaServed': { '@type': 'City', 'name': 'Gandia' } },
+      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Muebles a Medida', 'description': 'Mobiliario personalizado con maderas nobles y ensambles tradicionales' } },
+      { '@type': 'Offer', 'itemOffered': { '@type': 'Service', 'name': 'Restauración de Muebles', 'description': 'Restauración profesional con técnicas tradicionales de ebanistería' } },
+    ],
+  },
+};
 ---
 
 <!doctype html>
@@ -22,11 +83,19 @@ const {
     <meta name="description" content={description} />
     <meta name="keywords" content="carpintería Gandia, muebles a medida Valencia, ebanistería de lujo, restauración de muebles Gandia, cocinas a medida Marina Alta" />
     <meta name="author" content="Vetamans" />
+    <meta name="geo.region" content="ES-VC" />
+    <meta name="geo.placename" content="Gandia" />
+    <meta name="geo.position" content="38.9667;-0.1833" />
+    <meta name="ICBM" content="38.9667, -0.1833" />
+    {noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />}
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="es" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
     <title>{title} | Vetamans - Ebanistería de Lujo</title>
 
     <!-- Open Graph -->
@@ -34,7 +103,7 @@ const {
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={`${title} | Vetamans - Ebanistería de Lujo`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={image.startsWith('http') ? image : `${baseUrl}${image}`} />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Vetamans" />
 
@@ -43,35 +112,23 @@ const {
     <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={`${title} | Vetamans - Ebanistería de Lujo`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={image.startsWith('http') ? image : `${baseUrl}${image}`} />
 
     <!-- Schema.org LocalBusiness -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'HomeAndConstructionBusiness',
-      'name': 'Vetamans',
-      'description': description,
-      'url': 'https://vetamans.com',
-      'telephone': '+34-XXX-XXX-XXX',
-      'email': 'info@vetamans.com',
-      'address': {
-        '@type': 'PostalAddress',
-        'addressLocality': 'Gandia',
-        'addressRegion': 'Valencia',
-        'addressCountry': 'ES',
-      },
-      'geo': {
-        '@type': 'GeoCoordinates',
-        'latitude': 38.9667,
-        'longitude': -0.1833,
-      },
-      'areaServed': {
-        '@type': 'AdministrativeArea',
-        'name': 'Marina Alta',
-      },
-      'image': `https://vetamans.com${image}`,
-      'priceRange': '€€€',
-    })} />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)}></script>
+
+    <!-- BreadcrumbList Schema -->
+    {breadcrumbs.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          'position': i + 1,
+          'item': { '@id': b.url.startsWith('http') ? b.url : `${baseUrl}${b.url}`, 'name': b.name },
+        })),
+      })}></script>
+    )}
   </head>
   <body class="bg-vetamans-lino text-vetamans-carbon font-sans scroll-smooth antialiased">
     <slot />

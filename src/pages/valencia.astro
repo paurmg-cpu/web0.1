@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Muebles a Medida en Valencia"
+  description="Fabricación artesanal de muebles a medida en Valencia. Especialistas en cocinas integrales, vestidores, armarios y mobiliario personalizado con maderas nobles. Servicio en Valencia ciudad y área metropolitana."
+  canonicalURL="https://www.vetamans.com/valencia"
+  pageType="LocalBusiness"
+  breadcrumbs={[{ name: 'Inicio', url: '/' }, { name: 'Muebles a Medida en Valencia', url: '/valencia' }]}
+>
+  <Nav />
+  <main class="pt-24">
+    <section class="relative py-24 bg-vetamans-carbon overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[url('/hero-wood.jpg')] bg-cover bg-center"></div>
+      <div class="relative z-10 max-w-4xl mx-auto text-center px-8">
+        <span class="text-vetamans-roble text-sm uppercase tracking-[.3em] font-semibold">Valencia Ciudad · Área Metropolitana</span>
+        <h1 class="text-4xl md:text-6xl font-serif text-vetamans-lino mt-4 mb-6 leading-tight">
+          Muebles a Medida <br/><span class="italic">en Valencia</span>
+        </h1>
+        <p class="text-lg text-vetamans-lino/70 font-light max-w-2xl mx-auto mb-10">
+          Llevamos la ebanistería artesanal de Gandia a Valencia. Diseñamos y fabricamos muebles personalizados para pisos, áticos y viviendas en Valencia ciudad, desde Ruzafa hasta el Ensanche, desde el Cabanyal hasta Campanar.
+        </p>
+        <a href="/contacto" class="inline-block bg-vetamans-roble text-vetamans-lino px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-lino hover:text-vetamans-carbon transition-all">
+          Solicitar Presupuesto en Valencia
+        </a>
+      </div>
+    </section>
+
+    <section class="py-24 px-8 max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-serif text-vetamans-nogal mb-4">Ebanistería Artesanal en Valencia Ciudad</h2>
+        <div class="w-20 h-1 bg-vetamans-roble mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="flex gap-4">
+          <div class="text-3xl text-vetamans-roble shrink-0">01</div>
+          <div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2">Del Taller a tu Casa</h3>
+            <p class="text-vetamans-carbon font-light leading-relaxed">Fabricamos cada pieza en nuestro taller de Gandia con maderas nobles seleccionadas. Luego nos desplazamos a Valencia para el montaje final. Controlas todo el proceso sin moverte de casa.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="text-3xl text-vetamans-roble shrink-0">02</div>
+          <div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2">Visita Técnica en Valencia</h3>
+            <p class="text-vetamans-carbon font-light leading-relaxed">Nos desplazamos a tu domicilio en Valencia para tomar medidas, asesorarte sobre materiales y presentarte un presupuesto detallado. Sin coste ni compromiso.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="text-3xl text-vetamans-roble shrink-0">03</div>
+          <div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2">Adaptados a Valencia</h3>
+            <p class="text-vetamans-carbon font-light leading-relaxed">Conocemos los pisos de Valencia: techos altos del Ensanche, espacios abiertos de Ruzafa, dúplex de Patraix. Diseñamos muebles que aprovechan cada rincón con estilo mediterráneo.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="text-3xl text-vetamans-roble shrink-0">04</div>
+          <div>
+            <h3 class="text-xl font-serif text-vetamans-nogal mb-2">Servicio Completo</h3>
+            <p class="text-vetamans-carbon font-light leading-relaxed">Cocinas integrales, vestidores, armarios empotrados, muebles de salón, mesas de comedor. Cualquier proyecto en Valencia: diseño 3D, fabricación artesanal y montaje profesional.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-vetamans-nogal text-center px-8">
+      <h2 class="text-3xl font-serif text-vetamans-lino mb-4">¿Vives en Valencia y buscas muebles a medida?</h2>
+      <p class="text-vetamans-lino/70 font-light mb-8 max-w-xl mx-auto">Te visitamos sin compromiso. Medimos, diseñamos y presupuestamos tu proyecto.</p>
+      <a href="/contacto" class="inline-block bg-vetamans-lino text-vetamans-nogal px-10 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-roble transition-all">Pedir Visita Técnica</a>
+    </section>
+  </main>
+  <Footer />
+</Layout>
