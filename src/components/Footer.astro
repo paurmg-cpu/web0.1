@@ -1,3 +1,17 @@
+---
+export interface Props {
+  telefono?: string;
+  email?: string;
+  direccion?: string;
+  whatsapp?: string;
+}
+const {
+  telefono = '+34 XXX XXX XXX',
+  email = 'info@vetamans.com',
+  direccion = 'Gandia, Valencia - Marina Alta',
+  whatsapp = '34XXXXXXXXX',
+} = Astro.props;
+---
 <footer class="bg-vetamans-carbon text-vetamans-lino/80 pt-20 pb-8">
   <div class="max-w-7xl mx-auto px-8">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
@@ -37,16 +51,16 @@
         <ul class="space-y-3 text-sm font-light">
           <li class="flex items-start gap-2">
             <span class="text-vetamans-roble mt-0.5">📍</span>
-            <span>Gandia, Valencia<br/>Marina Alta</span>
+            <span>{direccion}</span>
           </li>
           <li>
-            <a href="mailto:info@vetamans.com" class="hover:text-vetamans-roble transition-colors flex items-start gap-2">
+            <a href={`mailto:${email}`} class="hover:text-vetamans-roble transition-colors flex items-start gap-2">
               <span class="text-vetamans-roble mt-0.5">✉️</span>
-              <span>info@vetamans.com</span>
+              <span>{email}</span>
             </a>
           </li>
           <li>
-            <a href="https://wa.me/34XXXXXXXXX" class="hover:text-vetamans-roble transition-colors flex items-start gap-2">
+            <a href={`https://wa.me/${whatsapp}`} class="hover:text-vetamans-roble transition-colors flex items-start gap-2">
               <span class="text-vetamans-roble mt-0.5">📱</span>
               <span>WhatsApp</span>
             </a>

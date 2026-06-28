@@ -2,6 +2,41 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+// Fetch dynamic content from API at build time
+let heroData = { hero_titulo: 'Maestría y Pasión', hero_subtitulo: 'en cada veta', hero_descripcion: 'Soluciones integrales de ebanistería artesanal en Gandia y la Marina Alta. Donde la técnica clásica se encuentra con el diseño contemporáneo.' };
+let servicios = [
+  { titulo: 'Cocinas Integrales', texto: 'Optimización de espacio y funcionalidad con acabados de alta gama.', link: '/servicios/cocinas', img: '/cocinas/cocina-1.jpg' },
+  { titulo: 'Muebles a Medida', texto: 'Piezas únicas diseñadas para encajar perfectamente en tu vida y espacio.', link: '/servicios/medida', img: '/vestidores/vestidor-1.jpg' },
+  { titulo: 'Restauración', texto: 'Devolvemos la gloria y el alma a piezas antiguas con rigor académico.', link: '/servicios/restauracion', img: '/pergolas/pergola-1.jpg' },
+];
+let proyectosDestacados = [];
+let testimonios = [];
+let settings = { telefono: '+34 600 000 000', email: 'info@vetamans.com', direccion: 'Gandia, Valencia', whatsapp: '34600000000' };
+
+try {
+  const [contentRes, projRes, testRes, settRes] = await Promise.all([
+    fetch('https://api.vetamans.com/api/content').catch(() => null),
+    fetch('https://api.vetamans.com/api/proyectos').catch(() => null),
+    fetch('https://api.vetamans.com/api/testimonios').catch(() => null),
+    fetch('https://api.vetamans.com/api/settings').catch(() => null),
+  ]);
+  if (contentRes?.ok) {
+    const c = await contentRes.json();
+    heroData = { ...heroData, ...c };
+    servicios[0] = { ...servicios[0], titulo: c.servicio_cocinas_titulo || servicios[0].titulo, texto: c.servicio_cocinas_texto || servicios[0].texto };
+    servicios[1] = { ...servicios[1], titulo: c.servicio_medida_titulo || servicios[1].titulo, texto: c.servicio_medida_texto || servicios[1].texto };
+    servicios[2] = { ...servicios[2], titulo: c.servicio_restauracion_titulo || servicios[2].titulo, texto: c.servicio_restauracion_texto || servicios[2].texto };
+  }
+  if (projRes?.ok) {
+    const p = await projRes.json();
+    proyectosDestacados = p.filter(x => x.destacado).slice(0, 3);
+  }
+  if (testRes?.ok) testimonios = await testRes.json();
+  if (settRes?.ok) settings = { ...settings, ...await settRes.json() };
+} catch (e) {
+  console.error('Error fetching API:', e);
+}
 ---
 
 <Layout
@@ -11,18 +46,16 @@ import Footer from '../components/Footer.astro';
 >
   <Nav currentPage="/" />
   <main>
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0 bg-vetamans-carbon opacity-20 z-10"></div>
       <div class="absolute inset-0 bg-[url('/hero-wood.jpg')] bg-cover bg-center z-0"></div>
-
       <div class="relative z-20 text-center px-4">
         <h1 class="text-5xl md:text-7xl font-serif text-vetamans-nogal mb-6 leading-tight">
-          Maestría y Pasión <br/> <span class="italic">en cada veta</span>
+          {heroData.hero_titulo} <br/> <span class="italic">{heroData.hero_subtitulo}</span>
         </h1>
         <p class="text-lg md:text-xl text-vetamans-carbon max-w-2xl mx-auto mb-10 font-light">
-          Soluciones integrales de ebanistería artesanal en Gandia y la Marina Alta.
-          Donde la técnica clásica se encuentra con el diseño contemporáneo.
+          {heroData.hero_descripcion}
         </p>
         <div class="flex flex-col md:flex-row gap-4 justify-center">
           <a href="/contacto" class="bg-vetamans-nogal text-vetamans-lino px-8 py-4 rounded-sm font-semibold text-lg hover:bg-vetamans-carbon transition-all shadow-xl">
@@ -35,45 +68,73 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <!-- Quick Services Section -->
+    <!-- Servicios -->
     <section class="py-24 px-8 max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-serif text-vetamans-nogal mb-4">Nuestras Especialidades</h2>
         <div class="w-20 h-1 bg-vetamans-roble mx-auto"></div>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <!-- Servicio 1: Cocinas -->
-        <div class="group">
-          <div class="overflow-hidden mb-6 aspect-[4/5] bg-vetamans-roble/10 relative">
-            <div class="absolute inset-0 group-hover:scale-110 transition-transform duration-700 bg-[url('/cocinas/cocina-1.jpg')] bg-cover bg-center"></div>
+        {servicios.map((s, i) => (
+          <div class="group">
+            <div class="overflow-hidden mb-6 aspect-[4/5] bg-vetamans-roble/10 relative">
+              <div class={`absolute inset-0 group-hover:scale-110 transition-transform duration-700 bg-[url('${s.img}')] bg-cover bg-center`}></div>
+            </div>
+            <h3 class="text-2xl font-serif text-vetamans-nogal mb-2">{s.titulo}</h3>
+            <p class="text-vetamans-carbon font-light mb-4">{s.texto}</p>
+            <a href={s.link} class="text-sm font-bold uppercase tracking-tighter text-vetamans-roble group-hover:text-vetamans-nogal transition-colors">Saber más &rarr;</a>
           </div>
-          <h3 class="text-2xl font-serif text-vetamans-nogal mb-2">Cocinas Integrales</h3>
-          <p class="text-vetamans-carbon font-light mb-4">Optimización de espacio y funcionalidad con acabados de alta gama.</p>
-          <a href="/servicios/cocinas" class="text-sm font-bold uppercase tracking-tighter text-vetamans-roble group-hover:text-vetamans-nogal transition-colors">Saber más &rarr;</a>
-        </div>
-
-        <!-- Servicio 2: Muebles a Medida -->
-        <div class="group">
-          <div class="overflow-hidden mb-6 aspect-[4/5] bg-vetamans-roble/10 relative">
-            <div class="absolute inset-0 group-hover:scale-110 transition-transform duration-700 bg-[url('/vestidores/vestidor-1.jpg')] bg-cover bg-center"></div>
-          </div>
-          <h3 class="text-2xl font-serif text-vetamans-nogal mb-2">Muebles a Medida</h3>
-          <p class="text-vetamans-carbon font-light mb-4">Piezas únicas diseñadas para encajar perfectamente en tu vida y espacio.</p>
-          <a href="/servicios/medida" class="text-sm font-bold uppercase tracking-tighter text-vetamans-roble group-hover:text-vetamans-nogal transition-colors">Saber más &rarr;</a>
-        </div>
-
-        <!-- Servicio 3: Restauración -->
-        <div class="group">
-          <div class="overflow-hidden mb-6 aspect-[4/5] bg-vetamans-roble/10 relative">
-            <div class="absolute inset-0 group-hover:scale-110 transition-transform duration-700 bg-[url('/pergolas/pergola-1.jpg')] bg-cover bg-center"></div>
-          </div>
-          <h3 class="text-2xl font-serif text-vetamans-nogal mb-2">Restauración</h3>
-          <p class="text-vetamans-carbon font-light mb-4">Devolvemos la gloria y el alma a piezas antiguas con rigor académico.</p>
-          <a href="/servicios/restauracion" class="text-sm font-bold uppercase tracking-tighter text-vetamans-roble group-hover:text-vetamans-nogal transition-colors">Saber más &rarr;</a>
-        </div>
+        ))}
       </div>
     </section>
+
+    <!-- Proyectos Destacados (si hay) -->
+    {proyectosDestacados.length > 0 && (
+      <section class="py-20 px-8 max-w-7xl mx-auto bg-vetamans-lino/50">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-serif text-vetamans-nogal mb-4">Proyectos Destacados</h2>
+          <div class="w-20 h-1 bg-vetamans-roble mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {proyectosDestacados.map(p => (
+            <div class="group bg-white shadow-sm rounded-sm overflow-hidden">
+              {p.imagenes?.[0] && (
+                <div class="aspect-[4/3] overflow-hidden">
+                  <img src={p.imagenes[0]} alt={p.titulo} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                </div>
+              )}
+              <div class="p-6">
+                <h3 class="font-serif text-lg text-vetamans-nogal">{p.titulo}</h3>
+                <p class="text-sm text-vetamans-carbon/60 mt-1">{p.categoria} · {p.cliente}</p>
+                <p class="text-sm text-vetamans-carbon mt-3 line-clamp-3">{p.descripcion}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Testimonios (si hay) -->
+    {testimonios.length > 0 && (
+      <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-serif text-vetamans-nogal mb-4">Lo que dicen nuestros clientes</h2>
+          <div class="w-20 h-1 bg-vetamans-roble mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {testimonios.slice(0, 6).map(t => (
+            <div class="bg-white p-8 rounded-sm shadow-sm border border-vetamans-roble/10">
+              <div class="text-vetamans-roble text-lg mb-4">{'★'.repeat(t.estrellas)}{'☆'.repeat(5 - t.estrellas)}</div>
+              <p class="text-vetamans-carbon font-light italic leading-relaxed mb-6">"{t.texto}"</p>
+              <div>
+                <p class="font-semibold text-vetamans-nogal text-sm">{t.nombre}</p>
+                {t.proyecto && <p class="text-xs text-vetamans-roble mt-1">{t.proyecto}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
   </main>
-  <Footer />
+  <Footer telefono={settings.telefono} email={settings.email} direccion={settings.direccion} whatsapp={settings.whatsapp} />
 </Layout>

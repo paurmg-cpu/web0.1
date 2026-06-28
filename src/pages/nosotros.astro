@@ -2,6 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+let nosotrosTexto = `Vetamans nace de la fusión de dos mundos complementarios. Por un lado, la experiencia y el rigor académico de Jorge Rondón, maestro ebanista venezolano que dedicó años a formar nuevas generaciones de carpinteros mientras dirigía su propio taller. Por otro, el entusiasmo y la visión de Pau Magraner, un joven apasionado por la excelencia y el trabajo bien hecho. En Vetamans, no solo fabricamos muebles; unimos la tradición artesanal con la energía de quien busca la perfección en cada detalle.`;
+
+try {
+  const res = await fetch('https://api.vetamans.com/api/content');
+  if (res.ok) {
+    const c = await res.json();
+    if (c.nosotros_texto) nosotrosTexto = c.nosotros_texto;
+  }
+} catch (e) {}
 ---
 
 <Layout
@@ -17,15 +27,7 @@ import Footer from '../components/Footer.astro';
           La unión de la <br/> <span class="italic">maestría y la pasión</span>
         </h1>
         <div class="space-y-6 text-vetamans-carbon font-light text-lg leading-relaxed">
-          <p>
-            Vetamans nace de la fusión de dos mundos complementarios. Por un lado, la experiencia y el rigor académico de <strong>Jorge Rondón</strong>, maestro ebanista venezolano que dedicó años a formar nuevas generaciones de carpinteros mientras dirigía su propio taller.
-          </p>
-          <p>
-            Por otro, el entusiasmo y la visión de <strong>Pau Magraner</strong>, un joven apasionado por la excelencia y el trabajo bien hecho.
-          </p>
-          <p>
-            En Vetamans, no solo fabricamos muebles; unimos la tradición artesanal, transmitida a través de la enseñanza y la práctica, con la energía de quien busca la perfección en cada detalle.
-          </p>
+          <p>{nosotrosTexto}</p>
         </div>
       </div>
       <div class="md:w-1/2 grid grid-cols-2 gap-4">
